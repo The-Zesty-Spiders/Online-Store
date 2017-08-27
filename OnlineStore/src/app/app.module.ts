@@ -10,6 +10,7 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SearchComponent } from './search/search.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { IdentityComponent } from './identity/identity.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
     HomeComponent,
     SearchComponent,
     NotfoundComponent,
+    IdentityComponent,
   ],
   imports: [
     BrowserModule,
