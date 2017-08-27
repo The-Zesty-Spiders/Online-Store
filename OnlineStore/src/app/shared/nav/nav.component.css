@@ -1,0 +1,18 @@
+.nav {
+  background-color: #333333;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  /* z-index: 10; */
+  top: 0;
+  display: block;
+  padding: 20px;
+  margin: 0 auto 5 auto;
+}
+
+a, a:hover, a:link, a:visited, a:active {
+  text-decoration: none;
+  color: #fff;
+  font-size: 40px;
+  padding: 5px;
+}
