@@ -9,7 +9,9 @@ import { NavComponent } from './shared/nav/nav.component';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { GlassComponent } from './glass/glass.component';
+import { ApiService } from "./shared/services/api.service";
+import { GlassesModule } from "./glasses/glasses.module";
+import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -18,16 +20,17 @@ import { GlassComponent } from './glass/glass.component';
     NavComponent,
     HomeComponent,
     NotfoundComponent,
-    GlassComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     Angular2CarouselModule,
     CarouselModule,
+    GlassesModule,
+    // SharedModule, / TODO enable later and remove the footerC, navC, and Api service
     NgbModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
