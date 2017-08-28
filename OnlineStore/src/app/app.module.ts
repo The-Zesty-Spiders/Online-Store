@@ -8,9 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { NavComponent } from './shared/nav/nav.component';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SearchComponent } from './search/search.component';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { IdentityComponent } from './identity/identity.component';
+import { GlassComponent } from './glass/glass.component';
 
 @NgModule({
   declarations: [
@@ -18,9 +17,8 @@ import { IdentityComponent } from './identity/identity.component';
     FooterComponent,
     NavComponent,
     HomeComponent,
-    SearchComponent,
     NotfoundComponent,
-    IdentityComponent,
+    GlassComponent,
   ],
   imports: [
     BrowserModule,

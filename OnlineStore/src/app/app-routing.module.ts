@@ -1,9 +1,9 @@
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
+import { GlassComponent } from './glass/glass.component';
 import { NgModule } from '@angular/core';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {
@@ -17,9 +17,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'search',
-    component: SearchComponent,
-    pathMatch: 'full'
+    path: 'glass/:id',
+    component: GlassComponent,
   },
   {
     path: '**',
