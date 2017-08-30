@@ -1,15 +1,15 @@
-import { NgModule } from '@angular/core';
+import { ApiService } from './services/api.service';
+import { AuthenticationService } from './services/authentication.service';
 import { CommonModule } from '@angular/common';
-import { NavComponent } from "./nav/nav.component";
-import { FooterComponent } from "./footer/footer.component";
-import { ApiService } from "./services/api.service";
-
+import { FooterComponent } from './footer/footer.component';
+import { NavComponent } from './nav/nav.component';
+import { NgModule } from '@angular/core';
 
 @NgModule({
   imports: [
     CommonModule,
   ],
   declarations: [NavComponent, FooterComponent],
-  providers: [ApiService]
+  providers: [ApiService, AuthenticationService]
 })
 export class SharedModule { }

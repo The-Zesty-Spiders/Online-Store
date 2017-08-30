@@ -1,5 +1,8 @@
 <div [ngClass]="'nav'">
   <a [routerLink]="[ '/home' ]">Home</a>
   <a [routerLink]="[ '/search' ]">Search</a>
-  <a [routerLink]="[ '#' ]">Contacts</a>
+  <a [routerLink]="[ '/contacts' ]">Contacts</a>
+  <a *ngIf="!AuthenticationService.isLoggedIn" [routerLink]="[ '/login' ]" >Log in</a>
+  <a *ngIf="AuthenticationService.isLoggedIn" [routerLink]="['']" (click)="logout()">Log out</a>
 </div>
+

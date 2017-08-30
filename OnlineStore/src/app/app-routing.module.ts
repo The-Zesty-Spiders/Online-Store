@@ -1,6 +1,7 @@
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { NotfoundComponent } from './notfound/notfound.component';
 
@@ -13,11 +14,14 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    pathMatch: 'full'
   },
   {
     path: 'glasses',
     loadChildren: './glasses/glasses.module#GlassesModule'
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
   {
     path: '**',
@@ -27,7 +31,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
