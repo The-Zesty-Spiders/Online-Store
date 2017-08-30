@@ -24,6 +24,11 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
+    path: 'users',
+    loadChildren: './users/users.module#UsersModule'
+  },
+
+  {
     path: '**',
     component: NotfoundComponent,
     pathMatch: 'full'

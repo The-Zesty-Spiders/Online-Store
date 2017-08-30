@@ -1,7 +1,8 @@
+import { RouterModule, Routes } from '@angular/router';
+
+import { GlassComponent } from './glass/glass.component';
+import { GlassesListComponent } from './glasses-list/glasses-list.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { GlassesListComponent } from "./glasses-list/glasses-list.component";
-import { GlassComponent } from "./glass/glass.component";
 
 const routes: Routes = [
   {

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import { AuthenticationService } from './../services/authentication.service';
 
@@ -10,15 +10,18 @@ import { AuthenticationService } from './../services/authentication.service';
 export class NavComponent implements OnInit {
 
   public isLoggedIn: boolean;
+  public isAdminLoggedIn: boolean;
   constructor(private AuthenticationService: AuthenticationService) {
     // this.isLoggedIn = this.AuthenticationService.isLoggedIn;
   }
   logout() {
-    // console.log('LOG OUT CLICKED');
     this.AuthenticationService.logout();
+    // console.log('LOG OUT CLICKED');
   }
   ngOnInit() {
     this.isLoggedIn = this.AuthenticationService.isLoggedIn;
+    this.isAdminLoggedIn = this.AuthenticationService.isAdminLoggedIn;
+    // console.log(this.AuthenticationService.username);
   }
 
 }
