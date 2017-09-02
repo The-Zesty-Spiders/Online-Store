@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../shared/services/api.service';
-import { GlassResponse } from '../../shared/services/GlassResponse.model';
 import { Params, ActivatedRoute } from '@angular/router';
+import { GlassResponse } from './models/GlassResponse.model';
 
 @Component({
   selector: 'app-glass',
