@@ -3,7 +3,9 @@ import { Headers, Http, RequestOptions, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { BodyTypeRequest } from './bodyTypeRequest.model';
-import { GlassRequest } from "./glassRequest.model";
+import { GlassRequest } from './glassRequest.model';
+import { Model } from '../../search/search/models/Model.model';
+import { Observable } from 'rxjs/Observable';
 
 const BASE_URL = 'http://gggonlineshop.apphb.com/';
 const HEADER = new Headers({ 'Content-Type': 'application/json' });
@@ -14,24 +16,18 @@ export class ApiService {
   constructor(private http: Http) {}
 
   getGlassById(id: number) {
-    const url = `${BASE_URL}api/Products/GetById/${id}`;
-    const response = this.http.get(url).map(res => res.json());
-
-    return response;
+    let url = `${BASE_URL}api/Products/GetById/${id}`;
+    return this.http.get(url).map(res => res.json());
   }
 
   getMakes() {
-    const url = `${BASE_URL}api/Makes`;
-    const response = this.http.get(url).map(res => res.json());
-
-    return response;
+    let url = `${BASE_URL}api/Makes`;
+    return this.http.get(url).map(res => res.json());
   }
 
-  getModelsByMakeId(makeId: number) {
-    const url = `${BASE_URL}api/Models/GetByMakeId/${makeId}`;
-    const response = this.http.get(url).map(res => res.json());
-
-    return response;
+  getModelsByMakeId(makeId: number): Observable<any> {
+    let url = `${BASE_URL}api/Models/GetByMakeId/${makeId}`;
+    return this.http.get(url).map(res => res.json());
   }
 
   getBodyTypesByMakeAndModelIds(makeId: number, modelId: number) {

@@ -13,13 +13,13 @@ import { GlassShortResponse } from './models/glassShortResponse.model';
 })
 
 export class SearchComponent implements OnInit {
-  makes: Make[];
-  models: Model[];
-  bodyTypes: BodyType[];
-  glasses: GlassShortResponse[];
+  public makes: Make[] = [];
+  public models: Model[] = [];
+  public bodyTypes: BodyType[] = [];
+  public glasses: GlassShortResponse[] [];
 
   makeId: number;
-// TODO could be nulls
+// TODO could be nulls (check form model null)
   modelId: number;
   bodyTypeId: number;
 
@@ -32,37 +32,26 @@ export class SearchComponent implements OnInit {
     this.makeId = makeId;
     this.modelId = null;
     this.bodyTypeId = null;
+    this.models = [];
+    this.bodyTypes = [];
 
-    this.getModels();
-    console.log('models: ' +  this.models);
-    console.log('makeId: ' +  this.makeId);
-
-    // TODO check
-    if (this.models == null) {
-      this.getBodyTypes();
-      console.log('here');
-      if (this.bodyTypes == null) {
-        this.getGlasses();
-        console.log('here2');
-      }
+    if (this.makeId !== -1) {
+      this.getModels();
     }
   }
 
   selectModel(modelId: number) {
     this.modelId = modelId;
     this.bodyTypeId = null;
+    this.bodyTypes = [];
 
-    this.getBodyTypes();
-
-    if (this.bodyTypes == null) {
-      this.getGlasses();
+    if (this.makeId != -1 && this.modelId != -1) {
+      this.getBodyTypes();
     }
   }
 
   selectBodyType(bodyTypeId: number) {
     this.bodyTypeId = bodyTypeId;
-
-    this.getGlasses();
   }
 
   getMakes() {
@@ -72,8 +61,7 @@ export class SearchComponent implements OnInit {
 
   getModels() {
     this.apiService.getModelsByMakeId(this.makeId)
-      .subscribe(models => this.models = models);
-    console.log('models0: ' + this.models);
+      .subscribe(data => this.models = data);
   }
 
   getBodyTypes() {
@@ -82,8 +70,26 @@ export class SearchComponent implements OnInit {
   }
 
   getGlasses() {
-    this.apiService.getGlassesByVehicleInfo(this.makeId, this.modelId, this.bodyTypeId)
-    .subscribe(glasses => this.glasses = glasses);
+    if (this.makeId == null || this.makeId == -1) {
+      alert('select make');
+    }else if (this.models.length > 0 &&
+      (this.modelId == null || this.modelId == -1)) {
+      alert('select model');
+    }else if (this.bodyTypes.length > 0 &&
+      (this.bodyTypeId == null || this.bodyTypeId == -1)) {
+      alert('select bodytype');
+    } else {
+      if (this.modelId == -1) {
+        this.modelId = null;
+      }
+
+      if (this.bodyTypeId == -1) {
+        this.bodyTypeId = null;
+      }
+
+      this.apiService.getGlassesByVehicleInfo(this.makeId, this.modelId, this.bodyTypeId)
+      .subscribe(glasses => this.glasses = glasses);
+    }
   }
 
   ngOnInit() {
