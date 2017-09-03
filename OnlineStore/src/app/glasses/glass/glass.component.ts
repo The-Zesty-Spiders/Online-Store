@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../shared/services/api.service';
 import { Params, ActivatedRoute } from '@angular/router';
-import { GlassResponse } from './models/GlassResponse.model';
+import { GlassResponse } from './models/glassResponse.model';
+import { GlassesService } from '../glasses.service';
 
 @Component({
   selector: 'app-glass',
@@ -13,14 +13,13 @@ export class GlassComponent implements OnInit {
 
   constructor(
      private route: ActivatedRoute,
-    private apiService: ApiService
+     private glassesService: GlassesService
   ) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      this.apiService.getGlassById(params['id'])
+      this.glassesService.getGlassById(params['id'])
         .subscribe(glass => this.glass = glass);
     });
   }
-
 }

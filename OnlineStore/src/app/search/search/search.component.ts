@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Make } from './models/make.model';
 import { Model } from './models/model.model';
-import { ApiService } from '../../shared/services/api.service';
 import { Params, ActivatedRoute } from '@angular/router';
 import { BodyType } from './models/bodyType.model';
 import { GlassShortResponse } from './models/glassShortResponse.model';
+import { GlassesService } from '../../glasses/glasses.service';
+import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-search',
@@ -25,7 +26,8 @@ export class SearchComponent implements OnInit {
 
   constructor(
       private route: ActivatedRoute,
-      private apiService: ApiService
+      private glassesService: GlassesService,
+      private searchService: SearchService
   ) { }
 
   selectMake(makeId: number) {
@@ -55,17 +57,17 @@ export class SearchComponent implements OnInit {
   }
 
   getMakes() {
-    this.apiService.getMakes()
+    this.searchService.getMakes()
       .subscribe(makes => this.makes = makes);
   }
 
   getModels() {
-    this.apiService.getModelsByMakeId(this.makeId)
+    this.searchService.getModelsByMakeId(this.makeId)
       .subscribe(data => this.models = data);
   }
 
   getBodyTypes() {
-    this.apiService.getBodyTypesByMakeAndModelIds(this.makeId, this.modelId)
+    this.searchService.getBodyTypesByMakeAndModelIds(this.makeId, this.modelId)
     .subscribe(bodyTypes => this.bodyTypes = bodyTypes);
   }
 
@@ -87,7 +89,7 @@ export class SearchComponent implements OnInit {
         this.bodyTypeId = null;
       }
 
-      this.apiService.getGlassesByVehicleInfo(this.makeId, this.modelId, this.bodyTypeId)
+      this.glassesService.getGlassesByVehicleInfo(this.makeId, this.modelId, this.bodyTypeId)
       .subscribe(glasses => this.glasses = glasses);
     }
   }

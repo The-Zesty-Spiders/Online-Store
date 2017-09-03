@@ -1,5 +1,5 @@
 import { Angular2CarouselModule } from 'angular2carousel';
-import { ApiService } from './shared/services/api.service';
+import { ApiServices } from './shared/services/api.services';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthenticationService } from './shared/services/authentication.service';
@@ -39,7 +39,7 @@ import { UsersModule } from './users/users.module';
     // SharedModule, / TODO enable later and remove the footerC, navC, and Api service
     NgbModule
   ],
-  providers: [ApiService, AuthenticationService],
+  providers: [ApiServices, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
