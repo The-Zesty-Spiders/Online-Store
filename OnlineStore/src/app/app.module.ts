@@ -1,5 +1,8 @@
-import { Angular2CarouselModule } from 'angular2carousel';
+import {AlertComponent} from './shared/alert/alert.component';
+import {AlertModule} from 'ngx-bootstrap';
+import { AlertService } from './shared/services/alert.service';
 import { ApiServices } from './shared/services/api.services';
+import { Angular2CarouselModule } from 'angular2carousel';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthenticationService } from './shared/services/authentication.service';
@@ -25,7 +28,9 @@ import { UsersModule } from './users/users.module';
     NavComponent,
     HomeComponent,
     NotfoundComponent,
-    LoginComponent
+    LoginComponent,
+    AlertComponent
+    // DropdownComponent
   ],
   imports: [
     BrowserModule,
@@ -35,11 +40,10 @@ import { UsersModule } from './users/users.module';
     GlassesModule,
     UsersModule,
     HttpModule,
-    FormsModule,
+    FormsModule
     // SharedModule, / TODO enable later and remove the footerC, navC, and Api service
-    NgbModule
   ],
-  providers: [ApiServices, AuthenticationService],
+  providers: [ApiService, AuthenticationService, AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
