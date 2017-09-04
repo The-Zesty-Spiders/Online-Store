@@ -1,8 +1,8 @@
 import {AlertComponent} from './shared/alert/alert.component';
 import {AlertModule} from 'ngx-bootstrap';
 import { AlertService } from './shared/services/alert.service';
-import {Angular2CarouselModule} from 'angular2carousel';
-import { ApiService } from './shared/services/api.service';
+import { ApiServices } from './shared/services/api.services';
+import { Angular2CarouselModule } from 'angular2carousel';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthenticationService } from './shared/services/authentication.service';

@@ -23,6 +23,10 @@ const routes : Routes = [
     loadChildren: './glasses/glasses.module#GlassesModule'
   },
   {
+    path: 'search',
+    loadChildren: './search/search.module#SearchModule'
+  },
+  {
     path: 'login',
     component: LoginComponent,
   },

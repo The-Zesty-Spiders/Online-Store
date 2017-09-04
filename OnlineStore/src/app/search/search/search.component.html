@@ -1,0 +1,42 @@
+<div>
+  <div>
+    <select placeholder="make" #m (change)="selectMake(m.value)">
+        <option [value]="-1">make</option>
+        <option *ngFor="let make of makes" [value]="make.Id">{{make.Name}}</option>
+    </select>
+  </div>
+
+  <div>
+    <select *ngIf="this.makeId != null && this.makeId != -1" #m (change)="selectModel(m.value)">
+        <option [value]="-1">model</option>
+        <option *ngFor="let model of models" [value]="model.Id" >{{model.Name}}</option>
+      </select>
+  </div>
+    
+  <div>
+    <select *ngIf="makeId != null && modelId != null && this.makeId != -1 && this.modelId != -1" #b (change)="selectBodyType(b.value)">
+      <option [value]="-1">body</option>  
+      <option *ngFor="let bodyType of bodyTypes" [value]="bodyType.Id">
+          {{bodyType.Code}}/{{bodyType.Description}}
+        </option>
+      </select>
+  </div>
+</div>
+
+<button (click)="getGlasses()">Search</button>
+
+<div *ngIf="glasses != null">
+
+    <ul *ngFor="let glass of glasses">
+        <li>
+          <a href="/glasses/{{glass.Id}}">
+            Eurocode: {{glass?.EuroCode}}
+            OesCode: {{glass?.OesCode}}
+            IndustryCode: {{glass?.IndustryCode}}
+            MaterialNumber: {{glass?.MaterialNumber}}
+            LocalCode: {{glass?.LocalCode}}
+          </a><br>
+          info: {{glass.Description}}
+        </li>
+    </ul>
+</div>
