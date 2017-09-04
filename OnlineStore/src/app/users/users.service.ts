@@ -1,67 +1,39 @@
 import { Headers, Http, RequestOptions, Response } from '@angular/http';
 
-import { AuthenticationService } from './../shared/services/authentication.service';
+import { ApiServices } from './../shared/services/api.services';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/observable';
-import { Order } from './../models/order.model';
 import { User } from './../models/user.model';
-import {changeOrder} from '../models/changeOrder.model';
+import { changeOrder } from '../models/changeOrder.model';
 
 @Injectable()
 export class UsersService {
 
-  constructor( private http: Http, private authenticationService: AuthenticationService) { }
+  constructor(private apiServices: ApiServices) { }
 
-  create(user: User) {
-    return this.http.post('http://gggonlineshop.apphb.com/api/Account/Register', user,
-      this.jwt()).map((response: Response) => response.json());
+  createUser(email: string, bulstat: string, password: string, confirmPassword: string, companyName: string): Observable<any> {
+    const header = { 'Content-Type': 'application/json' };
+    const requestModel = new User(email, bulstat, password, confirmPassword, companyName);
+    console.log(requestModel);
+    return this.apiServices.post('api/Account/Register', requestModel, header, false);
   }
 
-  private jwt() {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    if (currentUser && currentUser.token) {
-        const headers = new Headers({ 'Access-Control-Allow-Origin': '*'});
-        headers.append('Content-type', 'application/json');
-        return new RequestOptions({ headers: headers });
-    }
+  getUserOrders(): Observable<any> {
+    return this.apiServices.get('api/OrderedItems/ShowMyOrders', null, true);
   }
 
-  getUserOrders(): Observable<Order[]> {
-    const headers = new Headers({ 'authorization': 'Bearer ' + this.authenticationService.token});
-    headers.append('Content-type', 'application/json');
-    const options = new RequestOptions({ headers: headers });
-
-    return this.http.get('https://gggonlineshop.apphb.com/api/OrderedItems/ShowMyOrders', options)
-        .map((response: Response) => response.json());
+  getUserDetails(): Observable<any> {
+    return this.apiServices.get('api/account/UserInfo', null, true);
   }
 
-
-  getUserDetails(): Observable<User> {
-    const headers = new Headers({ 'authorization': 'Bearer ' + this.authenticationService.token});
-    headers.append('Content-type', 'application/json');
-    const options = new RequestOptions({ headers: headers });
-
-    return this.http.get('https://gggonlineshop.apphb.com/api/account/UserInfo', options)
-        .map((response: Response) => response.json());
+  maganeOrders(): Observable<any> {
+    return this.apiServices.get('api/Administration/ManageOrderedItems/all', null, true);
   }
 
-  maganeOrders(): Observable<Order[]> {
-    const headers = new Headers({ 'authorization': 'Bearer ' + this.authenticationService.token});
-    headers.append('Content-type', 'application/json');
-    const options = new RequestOptions({ headers: headers });
-
-    return this.http.get('https://gggonlineshop.apphb.com/api/Administration/ManageOrderedItems/all', options)
-        .map((response: Response) => response.json());
-  }
-
-
-  changeOrderStatus(finished: boolean, id: number): Observable<changeOrder> {
-    const headers = new Headers({ 'authorization': 'Bearer ' + this.authenticationService.token});
-    headers.append('Content-type', 'application/json');
-    const options = new RequestOptions({ headers: headers });
-
-    return this.http.post('https://gggonlineshop.apphb.com/api/Administration/ManageOrderedItems/update', { Id: id, Finished: finished}, options)
-        .map((response: Response) => response.json());
+  changeOrderStatus(finished: boolean, id: number): Observable<any> {
+    const header = { 'Content-Type': 'application/json' };
+    const requestModel = new changeOrder(id, finished);
+    return this.apiServices.post('api/Administration/ManageOrderedItems/update', requestModel, header, true);
   }
 }
 

@@ -11,13 +11,9 @@
         <strong>LocalCode: </strong><span>{{order?.LocalCode}}</span><br>
         <strong>IndustryCode: </strong><span>{{order?.IndustryCode}}</span><br>
         <strong>Finished: </strong>
-        <!-- <select [(ngModel)] = "order.Finished">
-          <option></option>
-        </select> -->
         <select class="form-control" [(ngModel)]="order.Finished" #newStatus>
           <option *ngFor="let status of statuses" [value]="status">{{status}}</option>
         </select>
         <button type="button" class="btn btn-primary" (click)="selectNewStatus(newStatus.value, order.Id)"> Change status </button><br>
-        <!-- <span>{{order?.Finished}}</span>  -->
     </div>
 </div>

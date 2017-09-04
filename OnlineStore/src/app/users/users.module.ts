@@ -1,4 +1,7 @@
+import { AdminManageOrdersComponent } from './admin-manage-orders/admin-manage-orders.component';
 import { AlertService } from './../shared/services/alert.service';
+import { ApiService } from './../shared/services/api.service';
+import { ApiServices } from './../shared/services/api.services';
 import { AuthGuard } from './../guards/auth.guard';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -8,7 +11,6 @@ import { UserOrdersDetailsComponent } from './user-orders-details/user-orders-de
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersService } from './users.service';
-import { AdminManageOrdersComponent } from './admin-manage-orders/admin-manage-orders.component';
 
 @NgModule({
   imports: [
@@ -16,7 +18,7 @@ import { AdminManageOrdersComponent } from './admin-manage-orders/admin-manage-o
     UsersRoutingModule,
     FormsModule,
   ],
-  declarations: [UserRegisterComponent, UserDetailsComponent, UserOrdersDetailsComponent, AdminManageOrdersComponent, ],
-  providers: [UsersService, AlertService, AuthGuard]
+  declarations: [UserRegisterComponent, UserDetailsComponent, UserOrdersDetailsComponent, AdminManageOrdersComponent],
+  providers: [UsersService, AlertService, AuthGuard, ApiService, ApiServices]
 })
 export class UsersModule { }

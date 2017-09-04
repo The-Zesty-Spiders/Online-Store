@@ -1,8 +1,9 @@
-import {AlertComponent} from './shared/alert/alert.component';
-import {AlertModule} from 'ngx-bootstrap';
+import { AlertComponent } from './shared/alert/alert.component';
+import { AlertModule } from 'ngx-bootstrap';
 import { AlertService } from './shared/services/alert.service';
-import { ApiServices } from './shared/services/api.services';
 import { Angular2CarouselModule } from 'angular2carousel';
+import { ApiService } from './shared/services/api.service';
+import { ApiServices } from './shared/services/api.services';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthenticationService } from './shared/services/authentication.service';
@@ -21,6 +22,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { SharedModule } from './shared/shared.module';
 import { UsersModule } from './users/users.module';
 
+// import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,6 @@ import { UsersModule } from './users/users.module';
     NotfoundComponent,
     LoginComponent,
     AlertComponent
-    // DropdownComponent
   ],
   imports: [
     BrowserModule,
@@ -40,10 +42,11 @@ import { UsersModule } from './users/users.module';
     GlassesModule,
     UsersModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    // BsDropdownModule
     // SharedModule, / TODO enable later and remove the footerC, navC, and Api service
   ],
-  providers: [ApiService, AuthenticationService, AlertService],
+  providers: [ApiService, ApiServices, AuthenticationService, AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

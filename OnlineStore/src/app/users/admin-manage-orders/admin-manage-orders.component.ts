@@ -29,9 +29,9 @@ export class AdminManageOrdersComponent implements OnInit {
     this.id = id;
     this.UsersService.changeOrderStatus(this.finished, this.id)
       .subscribe(response => {
-        console.log(response);
+        // console.log(response);
         this.response = response;
-        this.AlertService.success(this.response, true);
+        this.AlertService.success('Status changed successfully', true);
       });
   }
 

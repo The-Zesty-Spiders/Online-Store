@@ -8,17 +8,15 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-//   moduleId: module.id
 })
 export class LoginComponent implements OnInit {
-model : any = {};
-loading = false;
+  model : any = {};
+  loading = false;
   error = '';
 
   constructor( private router: Router, private authenticationService: AuthenticationService, private AlertService: AlertService) { }
 
   ngOnInit() {
-      // reset login status
       this.authenticationService.logout();
   }
 
@@ -31,7 +29,7 @@ loading = false;
                 this.AlertService.success('You have logged in successfully!', true);
               } else {
                 this.AlertService.error('Username or password is incorrect', true);
-                  this.loading = false;
+                this.loading = false;
               }
           });
   }
