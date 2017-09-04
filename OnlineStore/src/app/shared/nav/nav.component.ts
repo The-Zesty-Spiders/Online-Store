@@ -11,6 +11,7 @@ export class NavComponent implements OnInit {
 
   public isLoggedIn: boolean;
   public isAdminLoggedIn: boolean;
+
   constructor(private AuthenticationService: AuthenticationService) {
     // this.isLoggedIn = this.AuthenticationService.isLoggedIn;
   }
@@ -23,5 +24,4 @@ export class NavComponent implements OnInit {
     this.isAdminLoggedIn = this.AuthenticationService.isAdminLoggedIn;
     // console.log(this.AuthenticationService.username);
   }
-
 }

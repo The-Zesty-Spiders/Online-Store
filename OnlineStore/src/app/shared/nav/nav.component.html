@@ -1,12 +1,18 @@
 <div>
-    isLoggedIn: {{ AuthenticationService.isLoggedIn }}
-    isAdminLoggedIn: {{ AuthenticationService.isAdminLoggedIn }}
-  </div>
+  isLoggedIn: {{ AuthenticationService.isLoggedIn }}
+  isAdminLoggedIn: {{ AuthenticationService.isAdminLoggedIn }}
+</div>
   <div [ngClass]="'nav'">
     <a [routerLink]="[ '/home' ]">Home</a>
     <a [routerLink]="[ '/search' ]">Search</a>
     <a [routerLink]="[ '/contacts' ]">Contacts</a>
+    <a *ngIf="AuthenticationService.isLoggedIn" [routerLink]="['users/details']"> My profile</a>
+    <a *ngIf="AuthenticationService.isLoggedIn" [routerLink]="['users/ordersdetails']">My orders</a>
+    <!-- <a *ngIf="!AuthenticationService.isLoggedIn" [routerLink]="[ 'users/createuser' ]" > Register </a> -->
+    <a *ngIf="AuthenticationService.isAdminLoggedIn" [routerLink]="[ 'users/createuser' ]" > Create user </a>
+    <a *ngIf="AuthenticationService.isAdminLoggedIn" [routerLink]="[ 'users/manageorders' ]" > Orders </a>
     <a *ngIf="!AuthenticationService.isLoggedIn" [routerLink]="[ '/login' ]" >Log in</a>
-    <a *ngIf="AuthenticationService.isAdminLoggedIn" [routerLink]="[ 'users/createUser' ]" >Create user</a>
     <a *ngIf="AuthenticationService.isLoggedIn" [routerLink]="['']" (click)="logout()">Log out</a>
+
+
   </div>
