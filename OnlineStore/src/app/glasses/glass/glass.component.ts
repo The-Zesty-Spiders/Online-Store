@@ -16,6 +16,20 @@ export class GlassComponent implements OnInit {
      private glassesService: GlassesService
   ) { }
 
+  buyGlass() {
+    // TODO
+    let glassId: number;
+    this.route.params.subscribe(params => {
+      if (params['id']) {
+        glassId = params['id'];
+      }else {
+        // TODO show error
+      }
+    });
+    this.glassesService.buyGlass('userId: string', glassId);
+    // get status code and if OK show successfull message
+  }
+
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
       this.glassesService.getGlassById(params['id'])

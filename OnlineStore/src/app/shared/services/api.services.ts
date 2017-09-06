@@ -16,6 +16,7 @@ export class ApiServices {
     if (id != null) {
       requestUrl += `/${id}`;
     }
+
     return this.http.get(requestUrl).map(res => res.json());
   }
 
@@ -23,29 +24,7 @@ export class ApiServices {
     let requestUrl = `${BASE_URL}${url}`;
 
     let options = new RequestOptions({headers: header});
-    let response = this.http.post(requestUrl, JSON.stringify(requestModel), options)
+    return this.http.post(requestUrl, JSON.stringify(requestModel), options)
                       .map(res => res.json());
-
-    return response;
   }
-
-  // getMakes(): Observable<any> {
-  //   let url = `${BASE_URL}api/Makes`;
-  //   return this.http.get(url).map(res => res.json());
-  // }
-
-  // getModelsByMakeId(makeId: number): Observable<any> {
-  //   let url = `${BASE_URL}api/Models/GetByMakeId/${makeId}`;
-  //   return this.http.get(url).map(res => res.json());
-  // }
-
-  // getBodyTypesByMakeAndModelIds(makeId: number, modelId: number): Observable<any> {
-  //   const options = new RequestOptions({headers: HEADER});
-
-  //   const requestModel = new BodyTypeRequest(makeId, modelId);
-  //   const url = `${BASE_URL}api/BodyTypes/GetByMakeAndModelIds`;
-  //   const response = this.http.post(url, JSON.stringify(requestModel), options).map(res => res.json());
-
-  //   return response;
-  // }
 }

@@ -30,13 +30,13 @@
     <ul *ngFor="let glass of glasses">
         <li>
           <a href="/glasses/{{glass.Id}}">
-            Eurocode: {{glass?.EuroCode}}
-            OesCode: {{glass?.OesCode}}
-            IndustryCode: {{glass?.IndustryCode}}
-            MaterialNumber: {{glass?.MaterialNumber}}
-            LocalCode: {{glass?.LocalCode}}
+            Eurocode: <strong>{{glass?.EuroCode}}</strong>
+            OesCode: <strong>{{glass?.OesCode}}</strong>
+            IndustryCode: <strong>{{glass?.IndustryCode}}</strong>
+            MaterialNumber: <strong>{{glass?.MaterialNumber}}</strong>
+            LocalCode: <strong>{{glass?.LocalCode}}</strong>
           </a><br>
-          info: {{glass.Description}}
+          <strong>info:</strong> {{glass.Description}}
         </li>
     </ul>
 </div>
