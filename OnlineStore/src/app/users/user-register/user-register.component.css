@@ -2,17 +2,38 @@ small {
     color: red;
 }
 
-.registerFormContainer {
-    padding: 10px;
-    margin: 40px auto 0 auto;
-}
-
-.registerForm {
-    margin: 0 auto;
-    padding: 10px;
+.register-container {
+    margin: 40px auto 70px auto;
+    width: 50%;
+    height: 25% auto;
+    background-color: #464646;
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+    text-align: center;
     align-content: center;
+    font-size: 1em;
 }
 
 input {
-    width: 30%;
+    margin: 0 auto;
+    width: 60%;
 }
+
+.btn-gray-bgr {
+    background-color: #333333;
+    color: #fff;
+    font-size: 1.2em;
+    /* text-transform: uppercase; */
+  }
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+outline: 0 none;
+box-shadow: none;
+}
+
+a, a:hover, a:link, a:visited, a:active {
+    text-decoration: none;
+    color: #fff;
+    padding: 25px;
+    }

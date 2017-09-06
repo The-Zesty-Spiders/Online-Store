@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AlertService } from './../shared/services/alert.service';
-import { AuthenticationService } from '../shared/services/authentication.service';
+import { AlertService } from './../../shared/services/alert.service';
+import { AuthenticationService } from './../..//shared/services/authentication.service';
 import { Router } from '@angular/router';
 
 @Component({
