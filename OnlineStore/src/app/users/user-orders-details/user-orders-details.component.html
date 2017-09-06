@@ -1,0 +1,22 @@
+<div class="users-orders-container">
+    <h1>My Orders:</h1>
+
+    <!-- <div *ngIf="!(orders || JSON) !== {}">
+        <h4>No orders to show!</h4>
+        <h4>{{ (orders || JSON) !== {} }}</h4>
+    </div> -->
+    <div>
+        <div class="users-order" *ngFor="let order of orders">
+            <h3>Order #{{order?.Id}}</h3>
+            <strong>Description: </strong><span>{{order?.Description}}</span><br>
+            <strong>EuroCode: </strong><span>{{order?.EuroCode}}</span><br>
+            <strong>OesCode: </strong><span>{{order?.OesCode}}</span><br>
+            <strong>MaterialNumber: </strong><span>{{order?.MaterialNumber}}</span><br>
+            <strong>LocalCode: </strong><span>{{order?.LocalCode}}</span><br>
+            <strong>IndustryCode: </strong><span>{{order?.IndustryCode}}</span><br>
+            <strong>Finished: </strong><span>{{order?.Finished}}</span><br>
+        </div>
+    </div>
+</div>
+
+

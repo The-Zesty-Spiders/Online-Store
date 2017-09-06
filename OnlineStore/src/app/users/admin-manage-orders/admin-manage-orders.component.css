@@ -1,9 +1,5 @@
-small {
-    color: red;
-}
-
-.register-container {
-    margin: 40px auto 70px auto;
+.magane-orders-container {
+    margin: 40px auto 90px auto;
     width: 50%;
     height: 25% auto;
     background-color: #464646;
@@ -11,19 +7,33 @@ small {
     border: 1px solid white;
     border-radius: 10px;
     text-align: center;
-    align-content: center;
-    font-size: 1em;
+    font-size: 0.8em;
+    overflow: auto;
 }
 
-input {
+span {
+    font-size: 0.8em;
+}
+
+.users-order {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    border-top: 1px solid #fff;
+}
+
+select {
+    width: 10%;
     margin: 0 auto;
-    width: 60%;
+    padding: 5px;
 }
 
 .btn-gray-bgr {
     background-color: #333333;
     color: #fff;
     font-size: 1.2em;
+    margin: 10px;
+    display: inline;
     /* text-transform: uppercase; */
   }
 
@@ -31,9 +41,3 @@ input {
 outline: 0 none;
 box-shadow: none;
 }
-
-a, a:hover, a:link, a:visited, a:active {
-    text-decoration: none;
-    color: #fff;
-    padding: 25px;
-    }

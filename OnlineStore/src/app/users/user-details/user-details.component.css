@@ -1,12 +1,12 @@
-.glass-details-container {
-    margin: 40px auto 70px auto;
-    height: auto;
+.profile-details {
+    margin: 40px auto;
     width: 50%;
-    text-align: center;
+    height: 25% auto;
     background-color: #464646;
     padding: 20px;
     border: 1px solid white;
     border-radius: 10px;
-    font-size: 0.8em;
+    text-align: center;
+    font-size: 1em;
     overflow: auto;
 }

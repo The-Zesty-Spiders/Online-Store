@@ -1,0 +1,19 @@
+.alertMsg {
+    -webkit-animation: fadeinout 10s;
+    animation: fadeinout 10s;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 30px;
+  }
+
+  @-webkit-keyframes fadeinout {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  @keyframes fadeinout {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+  }

@@ -6,14 +6,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   public imageSources: string[] = [
     'assets/images/test.jpg',
     'assets/images/test.jpg',
     'assets/images/test.jpg'
  ];
-
  public config: ICarouselConfig = {
    verifyBeforeLoad: true,
    log: false,
@@ -27,7 +26,5 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
 }

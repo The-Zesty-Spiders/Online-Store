@@ -1,14 +1,20 @@
 .footer {
-  margin: 0;
-  padding: 0;
-  position: fixed;
-  bottom: 0;
+  background-color: #464646;
+  text-align: center;
   width: 100%;
+  bottom: 0;
+  height: 5% auto;
+  display: block;
+  padding: 5px;
+  margin: 0 auto 5 auto;
+  position: fixed;
 }
 
 .footer-text {
-  background-color: #333333;
-  font-size: 20px;
+  background-color: #464646;
+  font-size: 1em;
   color: #fff;
   text-align: center;
+  padding: 5px;
+  margin: 0 auto;
 }

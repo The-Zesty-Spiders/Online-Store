@@ -1,0 +1,23 @@
+.users-orders-container {
+    margin: 40px auto 70px auto;
+    width: 50%;
+    height: 25% auto;
+    background-color: #464646;
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1em;
+    overflow: auto;
+}
+
+span {
+    font-size: 0.8em;
+}
+
+.users-order {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    border-top: 1px solid #fff;
+}

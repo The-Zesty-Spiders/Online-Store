@@ -1,15 +1,26 @@
+/* #carouselr {
+  background-color: #333333;
+}
+
+#carousel {
+  background-color: #333333;
+
+} */
 
 .carousel-container {
   display: block;
-  margin: 50px auto 10px auto;
+  padding: 0;
+  /* padding: 10%; */
+  margin: 50px auto;
   width: 80%;
-  height: 500px;
-  background-color: #fff;
+  height: 65%;
+  background-color: #333333;
+
 }
 
 @media screen and (max-width: 767px) {
   .carousel-container {
-    height: 400px;
+    /* height: 400px; */
   }
   .img-responsive {
     max-width: 100%;

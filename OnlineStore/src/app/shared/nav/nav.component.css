@@ -1,18 +1,38 @@
 .nav {
-  background-color: #333333;
+  background-color: #464646;
   text-align: center;
   width: 100%;
-  /* position: fixed; */
-  /* z-index: 10; */
   top: 0;
+  height: 20% auto;
   display: block;
-  padding: 20px;
+  padding: 5px;
   margin: 0 auto 5 auto;
+  /* position: fixed; */
 }
 
 a, a:hover, a:link, a:visited, a:active {
   text-decoration: none;
   color: #fff;
-  font-size: 40px;
-  padding: 5px;
+  padding: 10px;
+}
+
+.dropdown-menu {
+  background-color: #464646 !important;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.dropdown-head {
+  display: inline-block;
+}
+
+.nav-elems {
+  font-size: 1.8em;
+}
+
+.sub-elems {
+  display: block;
+  font-size: 1.5em;
 }
