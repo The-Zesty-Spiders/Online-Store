@@ -1,5 +1,7 @@
-import { NgModule } from '@angular/core';
+import { ApiService } from './../shared/services/api.service';
+import { ApiServices } from './../shared/services/api.services';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { SearchComponent } from './search/search.component';
 import { SearchRoutingModule } from './search-routing.module';
 import { SearchService } from './search.service';

@@ -1,15 +1,9 @@
-// import {DROPDOWN_DIRECTIVES, Dropdown, DropdownToggle} from 'ng2-bs-dropdown';
-
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { NavComponent } from './nav/nav.component';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-// import { ApiService } from './services/api.service';
-
-
-// import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 @NgModule({
   imports: [
     CommonModule,

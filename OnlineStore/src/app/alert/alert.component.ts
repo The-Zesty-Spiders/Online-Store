@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AlertService } from './../../shared/services/alert.service';
+import { AlertService } from './../shared/services/alert.service';
 
 @Component({
 //    moduleId: module.id,

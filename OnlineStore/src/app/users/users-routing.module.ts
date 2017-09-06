@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AdminManageOrdersComponent } from './admin-manage-orders/admin-manage-orders.component';
 import { AuthGuard } from './../guards/auth.guard';
+import {LoginComponent} from './user-login/login.component';
 import { NgModule } from '@angular/core';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserOrdersDetailsComponent } from './user-orders-details/user-orders-details.component';
@@ -26,7 +27,11 @@ const routes : Routes = [
     path: 'manageorders',
     component: AdminManageOrdersComponent,
     canActivate: [AuthGuard]
-  }
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
 ];
 
 @NgModule({

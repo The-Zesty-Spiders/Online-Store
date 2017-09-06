@@ -2,7 +2,7 @@ import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 
 import {AuthGuard} from './guards/auth.guard';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
+import {LoginComponent} from './users/user-login/login.component';
 import { NgModule } from '@angular/core';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { UserRegisterComponent } from './users/user-register/user-register.component';
@@ -27,18 +27,9 @@ const routes : Routes = [
     loadChildren: './search/search.module#SearchModule'
   },
   {
-    path: 'login',
-    component: LoginComponent,
-  },
-  {
     path: 'users',
     loadChildren: './users/users.module#UsersModule'
   },
-  {
-    path: 'createuser',
-    component: UserRegisterComponent,
-  },
-
   {
     path: '**',
     component: NotfoundComponent,

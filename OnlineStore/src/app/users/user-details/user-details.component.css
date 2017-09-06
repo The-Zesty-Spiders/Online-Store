@@ -1,0 +1,12 @@
+.profile-details {
+    margin: 40px auto;
+    width: 50%;
+    height: 25% auto;
+    background-color: #464646;
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1em;
+    overflow: auto;
+}
