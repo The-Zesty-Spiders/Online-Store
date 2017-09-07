@@ -6,15 +6,17 @@
     <a href="#" *ngIf="AuthenticationService.isLoggedIn" class="dropdown-head">
       <ul>
         <li appcustomdropdown class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" id="nav-dropdown" data-toggle="dropdown"
+          <a href="#" *ngIf="AuthenticationService.isLoggedIn && !AuthenticationService.isAdminLoggedIn" class="nav-link dropdown-toggle" id="nav-dropdown" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false" class="nav-elems">User &#9662;</a>
+          <a href="#"  *ngIf="AuthenticationService.isLoggedIn && AuthenticationService.isAdminLoggedIn" class="nav-link dropdown-toggle" id="nav-dropdown" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" class="nav-elems">Admin &#9662;</a>
             <div class="dropdown-menu" aria-labelledby="nav-dropdown" *ngIf="AuthenticationService.isLoggedIn">
               <a appcustomdropdown class="dropdown-item" [routerLink]="['users/details']" class="sub-elems">Profile</a>
               <a appcustomdropdown class="dropdown-item" [routerLink]="['users/ordersdetails']"
                 *ngIf="AuthenticationService.isLoggedIn && !AuthenticationService.isAdminLoggedIn" class="sub-elems">Orders</a>
               <a appcustomdropdown class="dropdown-item" [routerLink]="['users/manageorders']"
                 *ngIf="AuthenticationService.isAdminLoggedIn" class="sub-elems">Orders</a>
-              <a appcustomdropdown class="dropdown-item" [routerLink]="['']" (click)="logout()"
+              <a appcustomdropdown class="dropdown-item" href="javascript:void(0)" (click)="logout()"
                 *ngIf="AuthenticationService.isLoggedIn" class="sub-elems">Log out</a>
             </div>
         </li>

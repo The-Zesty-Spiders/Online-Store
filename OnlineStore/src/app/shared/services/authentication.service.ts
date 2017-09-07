@@ -3,11 +3,11 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
 import {Headers, Http, RequestOptions, Response} from '@angular/http';
-import { Injectable, OnInit } from '@angular/core';
+import {Injectable, OnInit, ViewContainerRef} from '@angular/core';
 
-import { AlertService } from './alert.service';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
+import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 
 const BASE_URL = 'http://gggonlineshop.apphb.com/';
 @Injectable()
@@ -18,7 +18,7 @@ export class AuthenticationService {
   public isAdminLoggedIn: boolean;
   public user: string;
   public err: Response;
-  constructor(private http: Http, private AlertService: AlertService,  private router: Router) {
+  constructor(private http: Http,  public router: Router) {
 
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.token;
@@ -51,15 +51,12 @@ export class AuthenticationService {
             if (username === 'admin@admin.com') {
               this.isAdminLoggedIn = true;
             }
-
             this.isLoggedIn = true;
-
-            return true;
+            return response;
           }
         })
         .catch((err) => {
-            const errMsg = err.json().error_description;
-            return errMsg;
+            return err;
         });
   }
 
@@ -70,7 +67,9 @@ export class AuthenticationService {
       this.isAdminLoggedIn = false;
       localStorage.removeItem('currentUser');
       this.router.navigate(['/']);
-      this.AlertService.success('You have logged out successfully!', true);
+      return;
+
     }
+    return;
   }
 }

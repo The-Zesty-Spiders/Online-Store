@@ -1,14 +1,13 @@
-import { AlertComponent } from './alert/alert.component';
-import { AlertModule } from 'ngx-bootstrap';
-import { AlertService } from './shared/services/alert.service';
 import { Angular2CarouselModule } from 'angular2carousel';
 import { ApiServices } from './shared/services/api.services';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthenticationService } from './shared/services/authentication.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { CarouselModule } from 'angular4-carousel';
+import { CustomOption } from './custom-option';
 import { Dropdown } from 'ng2-bs-dropdown';
 import { DropdownDirective } from './directives/dropdown/dropdown.directive';
 import { DropdownModule } from 'ngx-dropdown';
@@ -22,6 +21,8 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { SharedModule } from './shared/shared.module';
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import { ToastOptions } from 'ng2-toastr/src/toast-options';
 import { UsersModule } from './users/users.module';
 
 @NgModule({
@@ -31,7 +32,6 @@ import { UsersModule } from './users/users.module';
     NavComponent,
     HomeComponent,
     NotfoundComponent,
-    AlertComponent,
     DropdownDirective,
   ],
   imports: [
@@ -46,10 +46,11 @@ import { UsersModule } from './users/users.module';
     BsDropdownModule.forRoot(),
     DropdownModule,
     NgbModule,
+    BrowserAnimationsModule,
+    ToastModule.forRoot(),
     SharedModule,
-    
   ],
-  providers: [ApiServices, ApiServices, AuthenticationService, AlertService],
+  providers: [ApiServices, ApiServices, AuthenticationService, {provide: ToastOptions, useClass: CustomOption}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

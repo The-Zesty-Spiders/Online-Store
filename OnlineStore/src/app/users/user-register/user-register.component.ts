@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 
-import { AlertService } from '../../shared/services/alert.service';
-import {AuthenticationService} from '../../shared/services/authentication.service';
+import { AuthenticationService } from '../../shared/services/authentication.service';
 import { Router } from '@angular/router';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { User } from '../../models/user.model';
 import { UsersService } from './../users.service';
 
@@ -17,7 +17,8 @@ export class UserRegisterComponent {
     model: any = {};
     loading = false;
 
-    constructor(private router: Router, private userService: UsersService, private authenticationService: AuthenticationService, private alertService: AlertService) { }
+    constructor(private router: Router, private userService: UsersService, private authenticationService: AuthenticationService, 
+       public toastr: ToastsManager, public vcr: ViewContainerRef) { }
 
     register() {
         this.loading = true;
@@ -25,14 +26,17 @@ export class UserRegisterComponent {
             .subscribe(
                 data => {
                     console.log('register OK');
-                    this.router.navigate(['/']);
-                    this.alertService.success('Registration successful! You can now login!', true);
+                    this.toastr.success('Registration successful! You can now login!', 'SUCCESS!');
+                      setTimeout((router: Router) => {
+                        this.router.navigate(['/users/login']);
+                      }, 2000);
                 },
                 error => {
                     console.log('register NOK');
                     console.log('error' + error.json().data);
-                    this.alertService.error(error, true);
+                    console.log(error.json());
                     this.loading = false;
+                    this.toastr.error('Registration failed! Please, try again!', 'ERROR!');
                 }
             );
     }

@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Make } from './models/make.model';
-import { Model } from './models/model.model';
-import { Params, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
+
 import { BodyType } from './models/bodyType.model';
 import { GlassShortResponse } from './models/glassShortResponse.model';
 import { GlassesService } from '../../glasses/glasses.service';
+import { Make } from './models/make.model';
+import { Model } from './models/model.model';
 import { SearchService } from '../search.service';
-import { AlertService } from '../../shared/services/alert.service';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'app-search',
@@ -29,8 +30,10 @@ export class SearchComponent implements OnInit {
       private route: ActivatedRoute,
       private glassesService: GlassesService,
       private searchService: SearchService,
-      private alertService: AlertService,
-  ) { }
+      public toastr: ToastsManager,
+      public vcr: ViewContainerRef) {
+        this.toastr.setRootViewContainerRef(vcr);
+      }
 
   selectMake(makeId: number) {
     this.makeId = makeId;
@@ -75,13 +78,13 @@ export class SearchComponent implements OnInit {
 
   getGlasses() {
     if (this.makeId == null || this.makeId == -1) {
-      this.alertService.error('Please select make');
+      this.toastr.info('Please select make', 'INFO:');
     }else if (this.models.length > 0 &&
       (this.modelId == null || this.modelId == -1)) {
-        this.alertService.error('Please select model');
+        this.toastr.info('Please select model', 'INFO');
     }else if (this.bodyTypes.length > 0 &&
       (this.bodyTypeId == null || this.bodyTypeId == -1)) {
-        this.alertService.error('Please select bodyType');
+        this.toastr.info('Please select bodyType', 'INFO');
     } else {
       if (this.modelId == -1) {
         this.modelId = null;
