@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 
-import { AlertService } from './../../shared/services/alert.service';
 import { AuthenticationService } from './../..//shared/services/authentication.service';
+import { Response } from '@angular/http';
 import { Router } from '@angular/router';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'app-login',
@@ -14,23 +15,30 @@ export class LoginComponent implements OnInit {
   loading = false;
   error = '';
 
-  constructor( private router: Router, private authenticationService: AuthenticationService, private AlertService: AlertService) { }
+  constructor( private router: Router, private authenticationService: AuthenticationService,
+    public toastr: ToastsManager, vcr: ViewContainerRef) {
+      this.toastr.setRootViewContainerRef(vcr);
+     }
 
   ngOnInit() {
+    if (this.authenticationService.isLoggedIn) {
       this.authenticationService.logout();
+    }
   }
-
   login() {
       this.loading = true;
       this.authenticationService.login(this.model.username, this.model.password)
-          .subscribe(result => {
-              if (result === true) {
+          .subscribe(
+            (response: Response) => {
+              this.toastr.success('Login successfull!', 'SUCCESS!');
+              setTimeout((router: Router) => {
                 this.router.navigate(['/']);
-                this.AlertService.success('You have logged in successfully!', true);
-              } else {
-                this.AlertService.error('Username or password is incorrect', true);
-                this.loading = false;
-              }
-          });
+              }, 2000);
+            },
+            (error: Error) => {
+              this.loading = false;
+              this.toastr.error('Invalid username or password!', 'ERROR!');
+            }
+        );
   }
 }

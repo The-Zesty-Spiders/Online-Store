@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Params, ActivatedRoute, Router } from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {Component, OnInit, ViewContainerRef} from '@angular/core';
+
+import { AuthenticationService } from '../../shared/services/authentication.service';
 import { GlassResponse } from './models/glassResponse.model';
 import { GlassesService } from '../glasses.service';
-import { AlertService } from '../../shared/services/alert.service';
-import { AuthenticationService } from '../../shared/services/authentication.service';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'app-glass',
@@ -17,9 +18,12 @@ export class GlassComponent implements OnInit {
      private route: ActivatedRoute,
      private glassesService: GlassesService,
      private router: Router,
-     private alertService: AlertService,
-     private authenticationService: AuthenticationService
-  ) { }
+     private authenticationService: AuthenticationService,
+     public toastr: ToastsManager,
+     public vcr: ViewContainerRef
+  ) {
+    this.toastr.setRootViewContainerRef(vcr);
+  }
 
   public buyGlass() {
     let glassId: number;
@@ -27,7 +31,7 @@ export class GlassComponent implements OnInit {
       if (params['id']) {
         glassId = params['id'];
       }else {
-        this.alertService.error('no glassId', false);
+        this.toastr.error('No glassId', 'ERROR');
       }
     });
 
@@ -35,10 +39,12 @@ export class GlassComponent implements OnInit {
         .subscribe(result => {
           console.log(result);
           if (result.Description) {
-            this.router.navigate(['/search']);
-            this.alertService.success(`You have bought product (${result.Description})`, false);
+            this.toastr.success(`You have bought product (${result.Description})`, 'SUCCESS');
+            setTimeout((router: Router) => {
+              this.router.navigate(['/search']);
+            }, 5000);
           } else {
-            this.alertService.error('Error while buying product. Please try again', false);
+            this.toastr.error('Error while buying product. Please try again', 'ERROR');
           }
         });
   }
