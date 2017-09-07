@@ -6,6 +6,7 @@ import { BodyType } from './models/bodyType.model';
 import { GlassShortResponse } from './models/glassShortResponse.model';
 import { GlassesService } from '../../glasses/glasses.service';
 import { SearchService } from '../search.service';
+import { AlertService } from '../../shared/services/alert.service';
 
 @Component({
   selector: 'app-search',
@@ -27,7 +28,8 @@ export class SearchComponent implements OnInit {
   constructor(
       private route: ActivatedRoute,
       private glassesService: GlassesService,
-      private searchService: SearchService
+      private searchService: SearchService,
+      private alertService: AlertService,
   ) { }
 
   selectMake(makeId: number) {
@@ -73,13 +75,13 @@ export class SearchComponent implements OnInit {
 
   getGlasses() {
     if (this.makeId == null || this.makeId == -1) {
-      alert('select make');
+      this.alertService.error('Please select make');
     }else if (this.models.length > 0 &&
       (this.modelId == null || this.modelId == -1)) {
-      alert('select model');
+        this.alertService.error('Please select model');
     }else if (this.bodyTypes.length > 0 &&
       (this.bodyTypeId == null || this.bodyTypeId == -1)) {
-      alert('select bodytype');
+        this.alertService.error('Please select bodyType');
     } else {
       if (this.modelId == -1) {
         this.modelId = null;

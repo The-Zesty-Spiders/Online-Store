@@ -10,11 +10,12 @@
             <strong>MaterialNumber: </strong><span>{{order?.MaterialNumber}}</span><br>
             <strong>LocalCode: </strong><span>{{order?.LocalCode}}</span><br>
             <strong>IndustryCode: </strong><span>{{order?.IndustryCode}}</span><br>
+            <strong>Created: </strong><span>{{order?.CreatedOn}}</span><br>
             <strong>Finished: </strong>
             <select class="form-control" [(ngModel)]="order.Finished" #newStatus>
             <option *ngFor="let status of statuses" [value]="status">{{status}}</option>
             </select>
-            <button type="button" class="btn-gray-bgr btn btn-md" (click)="selectNewStatus(newStatus.value, order.Id)"> Change status </button><br>
+            <button type="button" class="btn btn-gray-bgr btn-primary btn-md" (click)="this.selectNewStatus(newStatus.value, order.Id)"> Change status </button><br>
         </div>
     </div>
 </div>

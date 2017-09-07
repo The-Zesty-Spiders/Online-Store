@@ -1,6 +1,5 @@
 import { AdminManageOrdersComponent } from './admin-manage-orders/admin-manage-orders.component';
 import { AlertService } from './../shared/services/alert.service';
-import { ApiService } from './../shared/services/api.service';
 import { ApiServices } from './../shared/services/api.services';
 import { AuthGuard } from './../guards/auth.guard';
 import { CommonModule } from '@angular/common';
@@ -26,6 +25,6 @@ import { UsersService } from './users.service';
     AdminManageOrdersComponent,
     LoginComponent
   ],
-  providers: [UsersService, AlertService, AuthGuard, ApiService, ApiServices]
+  providers: [UsersService, AlertService, AuthGuard, ApiServices]
 })
 export class UsersModule { }

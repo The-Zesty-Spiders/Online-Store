@@ -20,18 +20,17 @@ export class AdminManageOrdersComponent implements OnInit {
   public statuses: boolean[];
   public response: any;
 
-  constructor(private UsersService: UsersService, private AlertService: AlertService) {
+  constructor(private UsersService: UsersService, private alertService: AlertService) {
     this.statuses = [false, true];
   }
 
-  selectNewStatus(finished: boolean, id: number) {
+  public selectNewStatus(finished: boolean, id: number) {
     this.finished = finished;
     this.id = id;
     this.UsersService.changeOrderStatus(this.finished, this.id)
       .subscribe(response => {
-        // console.log(response);
         this.response = response;
-        this.AlertService.success('Status changed successfully', true);
+        this.alertService.success('Status changed successfully', true);
       });
   }
 

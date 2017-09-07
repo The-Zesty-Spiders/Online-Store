@@ -1,4 +1,3 @@
-import { ApiService } from './../shared/services/api.service';
 import { ApiServices } from './../shared/services/api.services';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';

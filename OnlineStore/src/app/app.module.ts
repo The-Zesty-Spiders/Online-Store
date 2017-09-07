@@ -2,7 +2,6 @@ import { AlertComponent } from './alert/alert.component';
 import { AlertModule } from 'ngx-bootstrap';
 import { AlertService } from './shared/services/alert.service';
 import { Angular2CarouselModule } from 'angular2carousel';
-import { ApiService } from './shared/services/api.service';
 import { ApiServices } from './shared/services/api.services';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -49,7 +48,7 @@ import { UsersModule } from './users/users.module';
     NgbModule
     // SharedModule, / TODO enable later and remove the footerC, navC, and Api service
   ],
-  providers: [ApiService, ApiServices, AuthenticationService, AlertService],
+  providers: [ApiServices, ApiServices, AuthenticationService, AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

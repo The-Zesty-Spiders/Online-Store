@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { ApiServices } from './api.services';
 
-describe('ApiService', () => {
+describe('ApiServices', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [ApiServices]

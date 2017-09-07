@@ -24,14 +24,16 @@ export class UserRegisterComponent {
         this.userService.createUser(this.model.email, this.model.bulstat, this.model.password, this.model.confirmPassword, this.model.companyName)
             .subscribe(
                 data => {
+                    console.log('register OK');
                     this.router.navigate(['/']);
                     this.alertService.success('Registration successful! You can now login!', true);
                 },
                 error => {
+                    console.log('register NOK');
+                    console.log('error' + error.json().data);
                     this.alertService.error(error, true);
                     this.loading = false;
                 }
             );
     }
-
 }

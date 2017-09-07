@@ -9,16 +9,20 @@ export class SearchService {
   constructor(private apiServices: ApiServices) {}
 
   public getMakes(): Observable<any> {
-    return this.apiServices.get('api/Makes');
+    return this.apiServices.get('api/Makes')
+      .map(res => res.json());
   }
 
   public getModelsByMakeId(makeId: number): Observable<any> {
-    return this.apiServices.get('api/Models/GetByMakeId', makeId);
+    return this.apiServices.get('api/Models/GetByMakeId', makeId)
+      .map(res => res.json());
   }
 
   public getBodyTypesByMakeAndModelIds(makeId: number, modelId: number): Observable<any> {
     const header = { 'Content-Type': 'application/json' };
     const requestModel = new BodyTypeRequest(makeId, modelId);
-    return this.apiServices.post('api/BodyTypes/GetByMakeAndModelIds', requestModel, header);
+
+    return this.apiServices.post('api/BodyTypes/GetByMakeAndModelIds', requestModel, header)
+      .map(res => res.json());
   }
 }

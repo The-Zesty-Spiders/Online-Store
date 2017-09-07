@@ -10,22 +10,22 @@ export class GlassesService {
   constructor(private apiServices: ApiServices, private authenticationService: AuthenticationService) {}
 
   public getGlassById(id: number): Observable<any> {
-      return this.apiServices.get('api/Products/GetById', id);
+      return this.apiServices.get('api/Products/GetById', id)
+        .map(res => res.json());
   }
 
   public getGlassesByVehicleInfo(makeId: number, modelId: number, bodyTypeId: number): Observable<any> {
       const header = { 'Content-Type': 'application/json' };
-
       const requestModel = new GlassRequest(makeId, modelId, bodyTypeId);
-      return this.apiServices.post('api/Products/GetByVehicleInfo', requestModel, header);
+
+      return this.apiServices.post('api/Products/GetByVehicleInfo', requestModel, header)
+        .map(res => res.json());
   }
 
-  public buyGlass(userId: string, glassId: number) {
+  public buyGlass(glassId: number) {
     const header = { 'Content-Type': 'application/json' };
-    // TODO authorization
-    const headers = new Headers({ 'Authorization': 'Bearer ' + this.authenticationService.token });
 
-    return this.apiServices.post(`api/OrderedItems/order/${glassId}`, null, header);
+    return this.apiServices.post(`api/OrderedItems/order/${glassId}`, null, header, true)
+      .map(res => res.json());
   }
 }
-

@@ -1,40 +1,42 @@
 <div class="glass-details-container">
-    <h2>Glass info:</h2>
-    <br>
-    <h4>Main info</h4>
-    ----------------<br>
-    <strong>Eurocode: </strong><span>{{glass?.EuroCode}}</span><br>
-    <strong>OesCode: </strong><span>{{glass?.OesCode}}</span><br>
-    <strong>IndustryCode: </strong><span>{{glass?.IndustryCode}}</span><br>
-    <strong>MaterialNumber: </strong><span>{{glass?.MaterialNumber}}</span><br>
-    <strong>LocalCode: </strong><span>{{glass?.LocalCode}}</span><br>
-    ----------------<br><br>
+    <div class="jumbotron">{{glass?.Description}}</div><br>
+    <div class="table-bordered">
+        <h5>Product Codes</h5>
+        <table class="table">
+            <tr><td>Eurocode</td><td>{{glass?.EuroCode}}</td>
+            <tr><td>OesCode</td><td>{{glass?.OesCode}}</td>
+            <tr><td>IndustryCode</td><td>{{glass?.IndustryCode}}</td>
+            <tr><td>MaterialNumber</td><td>{{glass?.MaterialNumber}}</td>
+            <tr><td>LocalCode</td><td>{{glass?.LocalCode}}</td>
+        </table>
+    </div><br>
 
-    <h4>Basic</h4>
-    ----------------<br>
-    <strong>Description: </strong><span>{{glass?.Description}}</span><br>
-    <strong>ProductType: {{glass?.ProductType}}</strong><span>{{glass?.Description}}</span><br>
-    ----------------<br><br>
-
-    <strong>Dates:</strong>
-    ----------------<br>
-    <strong>ModelDate: </strong><span>{{glass?.ModelDate}}</span><br>
-    <strong>PartDate: </strong><span>{{glass?.PartDate}}</span><br>
-    ----------------<br><br>
-
-    <h4>Additonal info</h4>
-    ----------------<br>
-    <strong>IsAcoustic: </strong><span>{{glass?.IsAcoustic}}</span><br>
-    <strong>IsCalibration: </strong><span>{{glass?.IsCalibration}}</span><br>
-    <strong>Modification: </strong><span>{{glass?.Modification}}</span><br>
-    <strong>Tint: </strong><span>{{glass?.Tint}}</span><br>
-    <strong>FittingTimeHours: </strong><span>{{glass?.FittingTimeHours}}</span><br>
-    <strong>FittingType: </strong><span>{{glass?.FittingType}}</span><br>
-    ----------------<br><br>
-
-    <h4>sizes</h4>
-    <strong>Height: </strong><span>{{glass?.Height}}</span><br>
-    <strong>Width: </strong><span>{{glass?.Width}}</span><br>
-
-    <button ng-if="true" (click)="this.buyGlass()">Buy</button>
+    <h5 class="col-md-6">Product Info</h5>
+        <div class="table-borderless">
+            <table class="table">
+                <tr>
+                    <td>ProductType: <strong>{{glass?.ProductType}}</strong></td>
+                    <td>ModelDate: <strong>{{glass?.ModelDate}}</strong></td>
+                </tr>
+                <tr>
+                    <td>Tint: <strong>{{glass?.Tint}}</strong></td>
+                    <td>PartDate: <strong>{{glass?.PartDate}}</strong></td></tr>
+                <tr>
+                    <td>IsAcoustic: <strong>{{glass?.IsAcoustic}}</strong></td>
+                    <td>PartDate: <strong>{{glass?.PartDate}}</strong></td>
+                </tr>
+                <tr>
+                    <td>IsCalibration: <strong>{{glass?.IsCalibration}}</strong></td>
+                    <td>FittingTimeHours: <strong>{{glass?.FittingTimeHours}}</strong></td>
+                </tr>
+                <tr>
+                    <td>Modification: <strong>{{glass?.Modification}}</strong></td>
+                    <td>FittingType: <strong>{{glass?.FittingType}}</strong></td>
+                </tr>
+                <tr>
+                    <td>Size (HxW): <strong>{{glass?.Height}}x{{glass?.Width}} mm</strong></td>
+                </tr>
+            </table>
+        </div>
+    <button type="button" class="btn btn-primary btn-md" *ngIf="authenticationService.isLoggedIn && !authenticationService.isAdminLoggedIn" (click)="this.buyGlass()">Buy</button>
 </div>

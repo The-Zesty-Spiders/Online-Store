@@ -8,6 +8,7 @@ import { Subject } from 'rxjs/Subject';
 export class AlertService {
     private subject = new Subject<any>();
     private keepAfterNavigationChange = false;
+    // TODO - option to hide in 3 4 seconds
 
     constructor(private router: Router) {
         // clear alert message on route change

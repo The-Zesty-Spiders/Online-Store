@@ -42,14 +42,18 @@ export class AuthenticationService {
     return this.http.post(url, body)
         .map((response: Response) => {
           const token = response.json() && response.json().access_token;
+
           if (token) {
             this.token = token;
             this.username = username;
             localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token }));
+
             if (username === 'admin@admin.com') {
               this.isAdminLoggedIn = true;
             }
+
             this.isLoggedIn = true;
+
             return true;
           }
         })
@@ -69,5 +73,4 @@ export class AuthenticationService {
       this.AlertService.success('You have logged out successfully!', true);
     }
   }
-
 }

@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  model : any = {};
+  model: any = {};
   loading = false;
   error = '';
 
