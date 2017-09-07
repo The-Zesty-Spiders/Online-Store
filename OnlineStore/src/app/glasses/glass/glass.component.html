@@ -3,38 +3,39 @@
     <div class="table-bordered">
         <h5>Product Codes</h5>
         <table class="table">
-            <tr><td>Eurocode</td><td>{{glass?.EuroCode}}</td>
-            <tr><td>OesCode</td><td>{{glass?.OesCode}}</td>
-            <tr><td>IndustryCode</td><td>{{glass?.IndustryCode}}</td>
-            <tr><td>MaterialNumber</td><td>{{glass?.MaterialNumber}}</td>
-            <tr><td>LocalCode</td><td>{{glass?.LocalCode}}</td>
+            <tr><td>Eurocode</td><td>{{glass?.EuroCode | propertyFormat}}</td>
+            <tr><td>OesCode</td><td>{{glass?.OesCode | propertyFormat}}</td>
+            <tr><td>IndustryCode</td><td>{{glass?.IndustryCode | propertyFormat}}</td>
+            <tr><td>MaterialNumber</td><td>{{glass?.MaterialNumber | propertyFormat}}</td>
+            <tr><td>LocalCode</td><td>{{glass?.LocalCode | propertyFormat}}</td>
         </table>
     </div><br>
 
-    <h5 class="col-md-6">Product Info</h5>
+    <h5>Product Info</h5>
         <div class="table-borderless">
             <table class="table">
                 <tr>
-                    <td>ProductType: <strong>{{glass?.ProductType}}</strong></td>
-                    <td>ModelDate: <strong>{{glass?.ModelDate}}</strong></td>
+                    <td>ProductType: <strong>{{glass?.ProductType | propertyFormat}}</strong></td>
+                    <td>ModelDate: <strong>{{glass?.ModelDate | propertyFormat}}</strong></td>
                 </tr>
                 <tr>
-                    <td>Tint: <strong>{{glass?.Tint}}</strong></td>
-                    <td>PartDate: <strong>{{glass?.PartDate}}</strong></td></tr>
+                    <td>Tint: <strong>{{glass?.Tint | propertyFormat}}</strong></td>
+                    <td>PartDate: <strong>{{glass?.PartDate | propertyFormat}}</strong></td></tr>
                 <tr>
-                    <td>IsAcoustic: <strong>{{glass?.IsAcoustic}}</strong></td>
-                    <td>PartDate: <strong>{{glass?.PartDate}}</strong></td>
+                    <td>IsAcoustic: <strong>{{glass?.IsAcoustic | propertyFormat}}</strong></td>
+                    <td>FittingTimeHours: <strong>{{glass?.FittingTimeHours | propertyFormat}}</strong></td>
                 </tr>
                 <tr>
-                    <td>IsCalibration: <strong>{{glass?.IsCalibration}}</strong></td>
-                    <td>FittingTimeHours: <strong>{{glass?.FittingTimeHours}}</strong></td>
+                    <td>IsCalibration: <strong>{{glass?.IsCalibration | propertyFormat}}</strong></td>
+                    <td>FittingType: <strong>{{glass?.FittingType | propertyFormat}}</strong></td>
                 </tr>
                 <tr>
-                    <td>Modification: <strong>{{glass?.Modification}}</strong></td>
-                    <td>FittingType: <strong>{{glass?.FittingType}}</strong></td>
-                </tr>
-                <tr>
-                    <td>Size (HxW): <strong>{{glass?.Height}}x{{glass?.Width}} mm</strong></td>
+                    <td>Modification: <strong>{{glass?.Modification | propertyFormat}}</strong></td>
+                    <td>Size (HxW): 
+                            <strong>
+                                {{glass?.Height | propertyFormat}}x{{glass?.Width | propertyFormat}} mm
+                            </strong>
+                        </td>
                 </tr>
             </table>
         </div>

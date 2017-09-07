@@ -5,15 +5,15 @@
             <h3 >Order #{{order?.Id}}</h3>
             <strong>Client's bulstat: </strong><span>{{order?.Bulstat}}</span><br>
             <strong>Description: </strong><span>{{order?.Description}}</span><br>
-            <strong>EuroCode: </strong><span>{{order?.EuroCode}}</span><br>
-            <strong>OesCode: </strong><span>{{order?.OesCode}}</span><br>
-            <strong>MaterialNumber: </strong><span>{{order?.MaterialNumber}}</span><br>
-            <strong>LocalCode: </strong><span>{{order?.LocalCode}}</span><br>
-            <strong>IndustryCode: </strong><span>{{order?.IndustryCode}}</span><br>
-            <strong>Created: </strong><span>{{order?.CreatedOn}}</span><br>
+            <strong>EuroCode: </strong><span>{{order?.EuroCode | propertyFormat}}</span><br>
+            <strong>OesCode: </strong><span>{{order?.OesCode  | propertyFormat}}</span><br>
+            <strong>MaterialNumber: </strong><span>{{order?.MaterialNumber | propertyFormat}}</span><br>
+            <strong>LocalCode: </strong><span>{{order?.LocalCode | propertyFormat}}</span><br>
+            <strong>IndustryCode: </strong><span>{{order?.IndustryCode | propertyFormat}}</span><br>
+            <strong>Created: </strong><span>{{order?.CreatedOn | dateFormat}}</span><br>
             <strong>Finished: </strong>
             <select class="form-control" [(ngModel)]="order.Finished" #newStatus>
-            <option *ngFor="let status of statuses" [value]="status">{{status}}</option>
+                <option *ngFor="let status of statuses" [value]="status">{{status}}</option>
             </select>
             <button type="button" class="btn btn-gray-bgr btn-primary btn-md" (click)="this.selectNewStatus(newStatus.value, order.Id)"> Change status </button><br>
         </div>

@@ -11,12 +11,14 @@ import { UserOrdersDetailsComponent } from './user-orders-details/user-orders-de
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersService } from './users.service';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     UsersRoutingModule,
     FormsModule,
+    SharedModule,
   ],
   declarations: [
     UserRegisterComponent,

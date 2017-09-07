@@ -32,7 +32,7 @@ import { UsersModule } from './users/users.module';
     HomeComponent,
     NotfoundComponent,
     AlertComponent,
-    DropdownDirective
+    DropdownDirective,
   ],
   imports: [
     BrowserModule,
@@ -45,8 +45,9 @@ import { UsersModule } from './users/users.module';
     FormsModule,
     BsDropdownModule.forRoot(),
     DropdownModule,
-    NgbModule
-    // SharedModule, / TODO enable later and remove the footerC, navC, and Api service
+    NgbModule,
+    SharedModule,
+    
   ],
   providers: [ApiServices, ApiServices, AuthenticationService, AlertService],
   bootstrap: [AppComponent]
