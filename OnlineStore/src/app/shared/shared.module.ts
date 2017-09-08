@@ -21,7 +21,7 @@ import { DropdownDirective } from './directives/dropdown.directive';
     NotfoundComponent,
   ],
   // [NavComponent
-  // TODO enable later and remove the footerC, navC, and Api service
+  // TODO enable later and remove the footerC, navC,
   providers: [ApiServices],
   exports: [DateFormatPipe, PropertyFormatPipe, DropdownDirective]
 })

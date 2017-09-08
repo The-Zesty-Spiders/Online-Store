@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Order } from '../../models/order.model';
 import { Router } from '@angular/router';
 import { UsersService } from '../users.service';
+import { Order } from '../models/order.model';
 
 @Component({
   selector: 'app-user-orders-details.component',

@@ -1,10 +1,10 @@
 import {Component, OnInit, ViewContainerRef} from '@angular/core';
 
-import { Order } from '../../models/order.model';
 import { Response } from '@angular/http';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { UsersService } from './../users.service';
-import { changeOrder } from '../../models/changeOrder.model';
+import { Order } from '../models/order.model';
+import { ChangeOrder } from '../models/changeOrder.model';
 
 @Component({
   selector: 'app-admin-manage-orders',
@@ -13,7 +13,7 @@ import { changeOrder } from '../../models/changeOrder.model';
 })
 export class AdminManageOrdersComponent implements OnInit {
 
-  public order: changeOrder;
+  public order: ChangeOrder;
   public id: number;
   public finished: boolean;
   public allOrders: Order[];
@@ -47,5 +47,4 @@ export class AdminManageOrdersComponent implements OnInit {
         this.allOrders = allOrders;
       });
   }
-
 }

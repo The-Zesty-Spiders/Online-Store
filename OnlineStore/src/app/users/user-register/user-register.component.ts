@@ -3,7 +3,7 @@ import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { AuthenticationService } from '../../shared/services/authentication.service';
 import { Router } from '@angular/router';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
-import { User } from '../../models/user.model';
+import { User } from '../models/user.model';
 import { UsersService } from './../users.service';
 
 @Component({

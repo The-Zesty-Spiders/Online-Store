@@ -3,8 +3,8 @@ import { Headers, Http, RequestOptions, Response } from '@angular/http';
 import { ApiServices } from './../shared/services/api.services';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/observable';
-import { User } from './../models/user.model';
-import { changeOrder } from '../models/changeOrder.model';
+import { User } from './models/user.model';
+import { ChangeOrder } from './models/changeOrder.model';
 
 @Injectable()
 export class UsersService {
@@ -36,7 +36,7 @@ export class UsersService {
 
   changeOrderStatus(finished: boolean, id: number): Observable<any> {
     const header = { 'Content-Type': 'application/json' };
-    const requestModel = new changeOrder(id, finished);
+    const requestModel = new ChangeOrder(id, finished);
 
     return this.apiServices.post('api/Administration/ManageOrderedItems/update', requestModel, header, true)
       .map(res => res.json());
