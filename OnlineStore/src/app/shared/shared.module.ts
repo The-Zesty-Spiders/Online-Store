@@ -6,12 +6,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DateFormatPipe } from './pipes/date-format.pipe';
 import { PropertyFormatPipe } from './pipes/property-format.pipe';
 import { ApiServices } from './services/api.services';
+import { NotfoundComponent } from './notfound/notfound.component';
+// import { AuthenticationService } from './services/authentication.service';
 
 @NgModule({
   imports: [
     CommonModule,
   ],
-  declarations: [DateFormatPipe, PropertyFormatPipe],
+  declarations: [
+    DateFormatPipe,
+    PropertyFormatPipe,
+    NotfoundComponent,
+  ],
   // [NavComponent
   // TODO enable later and remove the footerC, navC, and Api service
   providers: [ApiServices],

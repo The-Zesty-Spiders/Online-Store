@@ -4,8 +4,8 @@ import {AuthGuard} from './users/guards/auth.guard';
 import { HomeComponent } from './home/home.component';
 import {LoginComponent} from './users/user-login/login.component';
 import { NgModule } from '@angular/core';
-import { NotfoundComponent } from './notfound/notfound.component';
 import { UserRegisterComponent } from './users/user-register/user-register.component';
+import { NotfoundComponent } from './shared/notfound/notfound.component';
 
 const routes: Routes = [
   {

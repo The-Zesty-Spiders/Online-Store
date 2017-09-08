@@ -8,7 +8,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserOrdersDetailsComponent } from './user-orders-details/user-orders-details.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 
-const routes : Routes = [
+const routes: Routes = [
   {
     path: 'createuser',
     component: UserRegisterComponent

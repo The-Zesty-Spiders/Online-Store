@@ -18,7 +18,6 @@ import { HttpModule } from '@angular/http';
 import { NavComponent } from './shared/nav/nav.component';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NotfoundComponent } from './notfound/notfound.component';
 import { SharedModule } from './shared/shared.module';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { ToastOptions } from 'ng2-toastr/src/toast-options';
@@ -30,7 +29,6 @@ import { UsersModule } from './users/users.module';
     FooterComponent,
     NavComponent,
     HomeComponent,
-    NotfoundComponent,
     DropdownDirective,
   ],
   imports: [

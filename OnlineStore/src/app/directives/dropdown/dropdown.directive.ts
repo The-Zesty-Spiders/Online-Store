@@ -2,7 +2,7 @@ import { Directive, HostBinding, HostListener } from '@angular/core';
 
 @Directive({
 
-selector: '[appcustomdropdown]',
+selector: '[appCustomdropdown]',
 })
 export class DropdownDirective {
 
@@ -17,6 +17,5 @@ export class DropdownDirective {
   @HostListener('mouseleave') close() {
     this.isOpen = false;
   }
-
 }
 
