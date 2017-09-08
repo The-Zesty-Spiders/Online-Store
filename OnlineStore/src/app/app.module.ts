@@ -1,5 +1,4 @@
 import { Angular2CarouselModule } from 'angular2carousel';
-import { ApiServices } from './shared/services/api.services';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthenticationService } from './shared/services/authentication.service';
@@ -50,7 +49,7 @@ import { UsersModule } from './users/users.module';
     ToastModule.forRoot(),
     SharedModule,
   ],
-  providers: [ApiServices, ApiServices, AuthenticationService, {provide: ToastOptions, useClass: CustomOption}],
+  providers: [AuthenticationService, {provide: ToastOptions, useClass: CustomOption}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

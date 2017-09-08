@@ -5,15 +5,16 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DateFormatPipe } from './pipes/date-format.pipe';
 import { PropertyFormatPipe } from './pipes/property-format.pipe';
+import { ApiServices } from './services/api.services';
 
 @NgModule({
   imports: [
     CommonModule,
   ],
   declarations: [DateFormatPipe, PropertyFormatPipe],
-  // [NavComponent, FooterComponent, DateFormatPipe],
+  // [NavComponent
   // TODO enable later and remove the footerC, navC, and Api service
-  providers: [],
+  providers: [ApiServices],
   exports: [DateFormatPipe, PropertyFormatPipe]
 })
 export class SharedModule { }
