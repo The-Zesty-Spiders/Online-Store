@@ -8,7 +8,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { CarouselModule } from 'angular4-carousel';
 import { CustomOption } from './custom-option';
 import { Dropdown } from 'ng2-bs-dropdown';
-import { DropdownDirective } from './directives/dropdown/dropdown.directive';
+// import { DropdownDirective } from './directives/dropdown/dropdown.directive';
 import { DropdownModule } from 'ngx-dropdown';
 import { FooterComponent } from './shared/footer/footer.component';
 import { FormsModule } from '@angular/forms';
@@ -29,7 +29,7 @@ import { UsersModule } from './users/users.module';
     FooterComponent,
     NavComponent,
     HomeComponent,
-    DropdownDirective,
+    // DropdownDirective,
   ],
   imports: [
     BrowserModule,

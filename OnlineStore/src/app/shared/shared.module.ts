@@ -7,6 +7,7 @@ import { DateFormatPipe } from './pipes/date-format.pipe';
 import { PropertyFormatPipe } from './pipes/property-format.pipe';
 import { ApiServices } from './services/api.services';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { DropdownDirective } from './directives/dropdown.directive';
 // import { AuthenticationService } from './services/authentication.service';
 
 @NgModule({
@@ -15,12 +16,13 @@ import { NotfoundComponent } from './notfound/notfound.component';
   ],
   declarations: [
     DateFormatPipe,
+    DropdownDirective,
     PropertyFormatPipe,
     NotfoundComponent,
   ],
   // [NavComponent
   // TODO enable later and remove the footerC, navC, and Api service
   providers: [ApiServices],
-  exports: [DateFormatPipe, PropertyFormatPipe]
+  exports: [DateFormatPipe, PropertyFormatPipe, DropdownDirective]
 })
 export class SharedModule { }
