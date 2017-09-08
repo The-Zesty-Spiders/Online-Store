@@ -1,6 +1,6 @@
 import { AdminManageOrdersComponent } from './admin-manage-orders/admin-manage-orders.component';
 import { ApiServices } from './../shared/services/api.services';
-import { AuthGuard } from './../guards/auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './user-login/login.component';
