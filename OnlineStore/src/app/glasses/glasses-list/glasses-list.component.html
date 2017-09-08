@@ -3,8 +3,8 @@
     <div class="glasses-list"  *ngFor="let glass of this.glassesList">
         <a href="/glasses/{{glass.Id}}">
             <span>
-                Eurocode: <strong>{{glass.EuroCode}}</strong> 
-                MaterialNumber: <strong>{{glass.MaterialNumber}}</strong> 
+                Eurocode: <strong>{{glass.EuroCode | propertyFormat}}</strong> 
+                MaterialNumber: <strong>{{glass.MaterialNumber | propertyFormat}}</strong> 
             </span><br>
             <span class="desc-inf "><i>info: </i>{{glass.Description}}</span>
         </a>
