@@ -1,0 +1,15 @@
+.glasses-list {
+    height: 25% auto;
+    padding: 20px;
+    font-size: 1em;
+    margin: 20px auto;
+}
+
+.desc-inf {
+    font-size: 0.85em;
+}
+
+a, a:hover, a:link, a:visited, a:active {
+    color: #fff;
+    padding: 25px;
+}

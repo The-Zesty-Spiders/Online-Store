@@ -1,2 +1,12 @@
-<br><br><br><br><br>
-<h2>Glasses for car..</h2>
+<div class="col-md-6">
+    <h4 class="col-md-6 text-center">Glasses:</h4>
+    <div class="glasses-list"  *ngFor="let glass of this.glassesList">
+        <a href="/glasses/{{glass.Id}}">
+            <span>
+                Eurocode: <strong>{{glass.EuroCode}}</strong> 
+                MaterialNumber: <strong>{{glass.MaterialNumber}}</strong> 
+            </span><br>
+            <span class="desc-inf "><i>info: </i>{{glass.Description}}</span>
+        </a>
+    </div>
+</div>

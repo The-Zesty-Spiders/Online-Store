@@ -23,15 +23,20 @@
         <option [value]="-1">body</option>
         <option *ngFor="let bodyType of bodyTypes" [value]="bodyType.Id">
             {{bodyType.Code}}/{{bodyType.Description}}
-          </option>
-        </select>
+        </option>
+      </select>
     </div>
     <button type="button" class="btn btn-gray-bgr btn-primary btn-md" (click)="getGlasses()">Search</button>
   </div>
   
-    <ul *ngFor="let glass of glasses">
-        <li>
-          <a href="/glasses/{{glass.Id}}">{{glass.Description}}</a>
-        </li>
-    </ul>
+  <app-glasses-list [glassesList]="this.glasses"></app-glasses-list>
+    <!-- <div class="search-result" *ngFor="let glass of glasses">
+        <a href="/glasses/{{glass.Id}}">
+          <span>
+            Eurocode: <strong>{{glass.EuroCode}}</strong> 
+            MaterialNumber: <strong>{{glass.MaterialNumber}}</strong> 
+          </span><br>
+          <span class="desc-inf "><i>info:</i> {{glass.EuroCode}};{{glass.Description}}</span>
+        </a>
+    </div> -->
 </div>

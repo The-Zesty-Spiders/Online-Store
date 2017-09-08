@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
-import { NavComponent } from './nav/nav.component';
+// import { NavComponent } from './nav/nav.component';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DateFormatPipe } from './pipes/date-format.pipe';
@@ -20,8 +20,7 @@ import { DropdownDirective } from './directives/dropdown.directive';
     PropertyFormatPipe,
     NotfoundComponent,
   ],
-  // [NavComponent
-  // TODO enable later and remove the footerC, navC,
+  // TODO enable later and remove the footerC, navC, and Api service
   providers: [ApiServices],
   exports: [DateFormatPipe, PropertyFormatPipe, DropdownDirective]
 })

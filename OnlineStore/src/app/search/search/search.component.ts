@@ -2,12 +2,12 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 
 import { BodyType } from './models/bodyType.model';
-import { GlassShortResponse } from './models/glassShortResponse.model';
 import { GlassesService } from '../../glasses/glasses.service';
 import { Make } from './models/make.model';
 import { Model } from './models/model.model';
 import { SearchService } from '../search.service';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { GlassShortResponse } from '../../glasses/glass/models/glassShortResponse.model';
 
 @Component({
   selector: 'app-search',
@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
   public makes: Make[] = [];
   public models: Model[] = [];
   public bodyTypes: BodyType[] = [];
-  public glasses: GlassShortResponse[] [];
+  public glasses: GlassShortResponse[] = [];
 
   makeId: number;
 // TODO could be nulls (check form model null)
@@ -95,7 +95,7 @@ export class SearchComponent implements OnInit {
       }
 
       this.glassesService.getGlassesByVehicleInfo(this.makeId, this.modelId, this.bodyTypeId)
-      .subscribe(glasses => this.glasses = glasses);
+        .subscribe(glasses => this.glasses = glasses);
     }
   }
 

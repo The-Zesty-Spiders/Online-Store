@@ -10,15 +10,6 @@
     font-size: 1em;
 }
 
-.search-result {
-    margin: 40px auto;
-    width: 70%;
-    height: 25% auto;
-    padding: 20px;
-    text-align: center;
-    font-size: 1em;
-}
-
 .btn-gray-bgr {
     background-color: #333333;
     color: #fff;
@@ -36,4 +27,4 @@ a, a:hover, a:link, a:visited, a:active {
     /* text-decoration: none; */
     color: #fff;
     padding: 25px;
-  }
+}

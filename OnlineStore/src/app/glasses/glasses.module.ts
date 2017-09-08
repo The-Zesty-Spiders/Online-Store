@@ -14,6 +14,7 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ],
   declarations: [GlassComponent, GlassesListComponent],
-  providers: [GlassesService]
+  providers: [GlassesService],
+  exports: [GlassesListComponent]
 })
 export class GlassesModule { }
