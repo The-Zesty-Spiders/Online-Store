@@ -31,14 +31,7 @@
   
     <ul *ngFor="let glass of glasses">
         <li>
-          <a href="/glasses/{{glass.Id}}">
-            Eurocode: <strong>{{glass?.EuroCode}}</strong>
-            OesCode: <strong>{{glass?.OesCode}}</strong>
-            IndustryCode: <strong>{{glass?.IndustryCode}}</strong>
-            MaterialNumber: <strong>{{glass?.MaterialNumber}}</strong>
-            LocalCode: <strong>{{glass?.LocalCode}}</strong>
-          </a><br>
-          <strong>info:</strong> {{glass.Description}}
+          <a href="/glasses/{{glass.Id}}">{{glass.Description}}</a>
         </li>
     </ul>
 </div>

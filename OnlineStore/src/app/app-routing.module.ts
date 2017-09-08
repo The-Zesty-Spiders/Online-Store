@@ -7,7 +7,7 @@ import { NgModule } from '@angular/core';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { UserRegisterComponent } from './users/user-register/user-register.component';
 
-const routes : Routes = [
+const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
