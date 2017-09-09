@@ -1,12 +1,12 @@
-/* tslint:disable:no-unused-variable */
+// /* tslint:disable:no-unused-variable */
 
-import { TestBed, async } from '@angular/core/testing';
+// import { TestBed, async } from '@angular/core/testing';
 
-import { EqualValidatorDirective } from './equal-validator.directive';
+// import { EqualValidatorDirective } from './equal-validator.directive';
 
-describe('Directive: EqualValidator', () => {
-  it('should create an instance', () => {
-    const directive = new EqualValidatorDirective();
-    expect(directive).toBeTruthy();
-  });
-});
+// describe('Directive: EqualValidator', () => {
+//   it('should create an instance', () => {
+//     const directive = new EqualValidatorDirective();
+//     expect(directive).toBeTruthy();
+//   });
+// });

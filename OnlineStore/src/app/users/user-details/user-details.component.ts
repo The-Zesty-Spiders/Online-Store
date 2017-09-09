@@ -15,7 +15,10 @@ export class UserDetailsComponent implements OnInit {
 
   model: any = {};
   loading = false;
-  constructor(private router: Router, private userService: UsersService, private toastr: ToastsManager, private vcr: ViewContainerRef) { }
+  constructor(private router: Router,
+              private userService: UsersService,
+              private toastr: ToastsManager,
+              private vcr: ViewContainerRef) { }
 
   changePassword() {
     this.loading = true;
