@@ -39,5 +39,5 @@
                 </tr>
             </table>
         </div>
-    <button type="button" class="btn btn-primary btn-md" *ngIf="authenticationService.isLoggedIn && !authenticationService.isAdminLoggedIn" (click)="this.buyGlass()">Buy</button>
+    <button type="button" class="btn btn-primary btn-md" *ngIf="this.authenticationService.isLoggedIn && !this.authenticationService.isAdminLoggedIn" (click)="this.buyGlass()">Buy</button>
 </div>
