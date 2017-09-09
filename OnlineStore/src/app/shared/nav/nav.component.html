@@ -1,7 +1,7 @@
 <nav [ngClass]="'nav'" id="navbar">
     <a [routerLink]="[ '/home' ]" class="nav-elems">Home</a>
     <a [routerLink]="[ '/search']" class="nav-elems">Search</a>
-    <a [routerLink]="[ '/contacts']" class="nav-elems">Contacts</a>
+    <!-- <a [routerLink]="[ '/contacts']" class="nav-elems">Contacts</a> -->
     <a *ngIf="!this.authenticationService.isLoggedIn" [routerLink]="[ 'users/login' ]" class="nav-elems">Log in</a>
     <a *ngIf="this.authenticationService.isLoggedIn" class="dropdown-head" href="#">
       <ul>

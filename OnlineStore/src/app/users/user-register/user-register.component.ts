@@ -17,7 +17,7 @@ export class UserRegisterComponent {
     model: any = {};
     loading = false;
 
-    constructor(private router: Router, private userService: UsersService, private authenticationService: AuthenticationService, 
+    constructor(private router: Router, private userService: UsersService, private authenticationService: AuthenticationService,
        public toastr: ToastsManager, public vcr: ViewContainerRef) { }
 
     register() {
@@ -32,11 +32,10 @@ export class UserRegisterComponent {
                       }, 2000);
                 },
                 error => {
-                    console.log('register NOK');
-                    console.log('error' + error.json().data);
-                    console.log(error.json());
+                    console.log(error);
+                    const errMsg = error.json().ModelState[''][0];
+                    this.toastr.error(`${errMsg}`, 'ERROR!');
                     this.loading = false;
-                    this.toastr.error('Registration failed! Please, try again!', 'ERROR!');
                 }
             );
     }

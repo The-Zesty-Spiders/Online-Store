@@ -1,8 +1,37 @@
 <div class="profile-details">
     <h1>My Profile:</h1>
     <div>
-        <strong>Company name: </strong><span>{{details?.CompanyName}}</span><br>
-        <strong>Bulstat: </strong><span>{{details?.Bulstat}}</span><br>
         <strong>Email: </strong><span>{{details?.Email}}</span><br>
+        <form name="form" (ngSubmit)="f.form.valid && changePassword()" #f="ngForm" novalidate>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !oldPassword.valid }">
+                <label for="oldPassword">Old password:</label>
+                <input type="password" class="form-control" name="oldPassword" [(ngModel)]="model.oldPassword" #oldPassword="ngModel" minlength="6"  maxlength="20" required />
+                <!-- <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div> -->
+                <small [hidden]="oldPassword.valid || (oldPassword.pristine && !f.submitted)">
+                    Password should be at least <i>6 symbols</i>!
+                </small>
+            </div>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !newPassword.valid }">
+                <label for="newPassword">New password:</label>
+                <input type="password" class="form-control" name="newPassword" [(ngModel)]="model.newPassword" #newPassword="ngModel"  validateEqual="confirmPassword"  reverse="true" minlength="6" maxlength="20" required />
+                <!-- <div *ngIf="f.submitted && !confirmPassword.valid" class="help-block">Password mismatch</div> -->
+                <small [hidden]="newPassword.valid || (newPassword.pristine && !f.submitted)" >
+                    Password should be at least <i>6 symbols</i>!
+                </small>
+            </div>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !confirmPassword.valid }">
+                <label for="confirmPassword">Confirm password:</label>
+                <input type="password" class="form-control" name="confirmPassword" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel"  validateEqual="newPassword"  reverse="false" minlength="6" maxlength="20" required />
+                <!-- <div *ngIf="f.submitted && !confirmPassword.valid" class="help-block">Password mismatch</div> -->
+                <small [hidden]="confirmPassword.valid || (confirmPassword.pristine && !f.submitted)" >
+                    Password mismatch!
+                </small>
+            </div>
+            <div class="form-group">
+                <button [disabled]="loading" class="btn-gray-bgr btn btn-md">Change</button>
+                <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                <a [routerLink]="['/home']" class="btn btn-link">Cancel</a>
+            </div>
+        </form>
     </div>
 </div>

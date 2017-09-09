@@ -30,7 +30,7 @@ export class ViewOrdersComponent implements OnInit {
   constructor(private usersService: UsersService, public toastr: ToastsManager, public vcr: ViewContainerRef, private authenticationService: AuthenticationService) {
     this.toastr.setRootViewContainerRef(vcr);
     this.statuses = [false, true];
-    this.sortBy = ['all', 'number', 'date', 'finished', 'pending'];
+    this.sortBy = ['all', 'date', 'finished', 'pending'];
     this.isLoggedIn = this.authenticationService.isLoggedIn;
     this.isAdminLoggedIn = this.authenticationService.isAdminLoggedIn;
   }
@@ -47,13 +47,6 @@ export class ViewOrdersComponent implements OnInit {
       return this.orders = obj.filter((order) => {
         return order.Finished === false;
       });
-    }
-
-    if (sortFilterValue === 'number') {
-      return this.orders = obj.sort((a, b) => {
-        return a.Id - b.Id;
-        }
-      );
     }
 
     if (sortFilterValue === 'all') {

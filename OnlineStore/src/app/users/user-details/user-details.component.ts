@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewContainerRef} from '@angular/core';
 
-import { UsersService } from './../users.service';
+import { Router } from '@angular/router';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { User } from '../models/user.model';
+import { UsersService } from './../users.service';
 
 @Component({
   selector: 'app-user-details.component',
@@ -10,10 +12,29 @@ import { User } from '../models/user.model';
 })
 export class UserDetailsComponent implements OnInit {
   public details: User;
-  constructor(private UsersService: UsersService) { }
 
+  model: any = {};
+  loading = false;
+  constructor(private router: Router, private userService: UsersService, private toastr: ToastsManager, private vcr: ViewContainerRef) { }
+
+  changePassword() {
+    this.loading = true;
+
+    this.userService.changePassword(this.model.oldPassword, this.model.newPassword, this.model.confirmPassword)
+      .subscribe(
+          data => {
+              this.toastr.success('Password changed successfully!', 'SUCCESS!');
+              this.loading = false;
+          },
+          error => {
+              const errMsg = error.json().ModelState[''][0];
+              this.loading = false;
+              this.toastr.error(`${errMsg}`, 'ERROR!');
+          }
+      );
+  }
   ngOnInit() {
-    this.UsersService.getUserDetails()
+    this.userService.getUserDetails()
       .subscribe(details => {
         this.details = details;
       });
