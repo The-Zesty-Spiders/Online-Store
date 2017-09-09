@@ -12,10 +12,8 @@
             aria-haspopup="true" aria-expanded="false" class="nav-elems">Admin &#9662;</a>
             <div class="dropdown-menu" aria-labelledby="nav-dropdown" *ngIf="this.authenticationService.isLoggedIn">
               <a appCustomdropdown class="dropdown-item" [routerLink]="['users/details']" class="sub-elems">Profile</a>
-              <a appCustomdropdown class="dropdown-item" [routerLink]="['users/ordersdetails']"
-                *ngIf="this.authenticationService.isLoggedIn && !this.authenticationService.isAdminLoggedIn" class="sub-elems">Orders</a>
-              <a appCustomdropdown class="dropdown-item" [routerLink]="['users/manageorders']"
-                *ngIf="this.authenticationService.isAdminLoggedIn" class="sub-elems">Orders</a>
+              <a appCustomdropdown class="dropdown-item" [routerLink]="['users/viewOrders']"
+                *ngIf="this.authenticationService.isLoggedIn" class="sub-elems">View Orders</a>
               <a appCustomdropdown class="dropdown-item" href="javascript:void(0)" (click)="logout()"
                 *ngIf="this.authenticationService.isLoggedIn" class="sub-elems">Log out</a>
             </div>
