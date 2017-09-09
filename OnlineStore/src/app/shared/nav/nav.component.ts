@@ -13,7 +13,9 @@ export class NavComponent implements OnInit {
   public isLoggedIn: boolean;
   public isAdminLoggedIn: boolean;
 
-  constructor(private authenticationService: AuthenticationService, public toastr: ToastsManager, vcr: ViewContainerRef) {
+  constructor(private authenticationService: AuthenticationService,
+              public toastr: ToastsManager,
+              vcr: ViewContainerRef) {
     this.toastr.setRootViewContainerRef(vcr);
    }
   logout() {

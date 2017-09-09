@@ -18,7 +18,7 @@ export class GlassComponent implements OnInit {
      private route: ActivatedRoute,
      private glassesService: GlassesService,
      private router: Router,
-     private authenticationService: AuthenticationService,
+     public authenticationService: AuthenticationService,
      public toastr: ToastsManager,
      public vcr: ViewContainerRef
   ) {
