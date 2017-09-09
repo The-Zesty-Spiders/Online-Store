@@ -25,6 +25,7 @@ export class UserDetailsComponent implements OnInit {
           data => {
               this.toastr.success('Password changed successfully!', 'SUCCESS!');
               this.loading = false;
+              this.router.navigate(['/']);
           },
           error => {
               const errMsg = error.json().ModelState[''][0];
