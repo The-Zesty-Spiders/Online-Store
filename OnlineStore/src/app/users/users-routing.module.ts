@@ -7,6 +7,7 @@ import { NgModule } from '@angular/core';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserOrdersDetailsComponent } from './user-orders-details/user-orders-details.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
+import { ViewOrdersComponent } from './view-orders/view-orders.component';
 
 const routes: Routes = [
   {
@@ -19,19 +20,15 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'ordersdetails',
-    component: UserOrdersDetailsComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'manageorders',
-    component: AdminManageOrdersComponent,
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'login',
     component: LoginComponent
   },
+  {
+    path: 'viewOrders',
+    component: ViewOrdersComponent,
+    canActivate: [AuthGuard]
+  },
+
 ];
 
 @NgModule({
