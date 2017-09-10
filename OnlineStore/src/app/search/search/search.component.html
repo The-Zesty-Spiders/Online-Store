@@ -4,23 +4,23 @@
     <div>
       <label>Select make:</label>
       <select placeholder="make" #m (change)="selectMake(m.value)">
-          <option [value]="-1">make</option>
+          <option [value]=0>make</option>
           <option *ngFor="let make of makes" [value]="make.Id">{{make.Name}}</option>
       </select>
     </div>
 
     <div>
         <label>Select model:</label>
-      <select *ngIf="this.makeId != null && this.makeId != -1" #m (change)="selectModel(m.value)">
-          <option [value]="-1">model</option>
+      <select *ngIf="this.makeId != null && this.makeId != 0" #m (change)="selectModel(m.value)">
+          <option [value]=0>model</option>
           <option *ngFor="let model of models" [value]="model.Id" >{{model.Name}}</option>
         </select>
     </div>
 
     <div>
         <label>Select body:</label>
-      <select *ngIf="makeId != null && modelId != null && this.makeId != -1 && this.modelId != -1" #b (change)="selectBodyType(b.value)">
-        <option [value]="-1">body</option>
+      <select *ngIf="makeId != null && modelId != null && this.makeId != 0 && this.modelId != 0" #b (change)="selectBodyType(b.value)">
+        <option [value]=0>body</option>
         <option *ngFor="let bodyType of bodyTypes" [value]="bodyType.Id">
             {{bodyType.Code}}/{{bodyType.Description}}
         </option>
@@ -30,13 +30,4 @@
   </div>
   
   <app-glasses-list [glassesList]="this.glasses"></app-glasses-list>
-    <!-- <div class="search-result" *ngFor="let glass of glasses">
-        <a href="/glasses/{{glass.Id}}">
-          <span>
-            Eurocode: <strong>{{glass.EuroCode}}</strong> 
-            MaterialNumber: <strong>{{glass.MaterialNumber}}</strong> 
-          </span><br>
-          <span class="desc-inf "><i>info:</i> {{glass.EuroCode}};{{glass.Description}}</span>
-        </a>
-    </div> -->
 </div>

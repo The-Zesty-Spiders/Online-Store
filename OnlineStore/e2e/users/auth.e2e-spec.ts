@@ -16,7 +16,7 @@ describe('online-store App', () => {
     element(by.id('nav-login')).click();
     await browser.driver.findElement(by.id('login-email'));
     element(by.id('login-email')).sendKeys('test@test.bg');
-    element(by.id('login-pass')).sendKeys('test123');  
+    element(by.id('login-pass')).sendKeys('test123');
     await element(by.id('login-submit')).click();
     await browser.waitForAngular();
     expect(browser.driver.getCurrentUrl()).toMatch('/');
@@ -39,8 +39,8 @@ describe('online-store App', () => {
 //   it('should show orders', async () => {
 //     await browser.get('/users/viewOrders')
 //     await browser.driver.findElements(by.css('viewOrders'));
-//     const elementh1 = element(by.css('viewOrders'));  
-//     let text = elementh1.getText();  
+//     const elementh1 = element(by.css('viewOrders'));
+//     let text = elementh1.getText();
 //     expect(text).toBe(`Orders:`);
 //   });
 

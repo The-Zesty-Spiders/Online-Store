@@ -21,17 +21,14 @@ describe('GlassComponent', () => {
   let fixture: ComponentFixture<GlassComponent>;
   let authenticationService;
   let authenticationServiceStub;
-  let glassesService;
+  let glassesService: any;
   let glassesServiceStub: any;
   let toastsManager;
   let toastsManagerStub;
   let viewContainerRef: any;
   let viewContainerRefStub: any;
 
-//   let route: ActivatedRoute;
-//   let router: Router;
-
-const glass = {
+  const glass = {
           Id: 1,
           Description: 'test description',
           EuroCode: 'testEuroCode',
@@ -54,10 +51,10 @@ const glass = {
           IsYesGlass: true,
         };
 
-    const fakeGlass = {
+  const fakeGlass = {
         Id: 2,
         Description: 'test description'
-        };
+  };
 
   beforeEach(async(() => {
     toastsManagerStub = {
@@ -76,6 +73,8 @@ const glass = {
         buyGlass: function(id: number){ return Observable.of(glass); }
     };
 
+    viewContainerRefStub = {};
+
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
       declarations: [ GlassComponent, MockPipe ],
@@ -93,6 +92,8 @@ const glass = {
     fixture.detectChanges();
     authenticationService = TestBed.get(AuthenticationService);
     toastsManager = TestBed.get(ToastsManager);
+    viewContainerRef = TestBed.get(ViewContainerRef);
+    glassesService = TestBed.get(GlassesService);
   });
 
   it('should be created', () => {
@@ -100,18 +101,25 @@ const glass = {
   });
 
   it('should call ngOnInit and set the glass', () => {
+    const spy = spyOn(glassesService, 'getGlassById').and.returnValue(Observable.of(glass));
+
     component.ngOnInit();
+    fixture.detectChanges();
+
+    expect(spy.calls.count()).toBe(1, 'getById called');
     expect(component.glass === glass).toBe(true);
     expect(component.glass === fakeGlass).toBe(false);
   });
 
   it('should call buyGlass and toastr.success', () => {
     const spy1 = spyOn(toastsManager, 'success');
-
-    fixture.detectChanges();
+    const spy2 = spyOn(glassesService, 'buyGlass').and.returnValue(Observable.of(glass));
 
     component.buyGlass();
+    fixture.detectChanges();
+
     expect(spy1.calls.count()).toBe(1, 'toastsManager.success was called once');
     expect(spy1).toHaveBeenCalledWith('You have bought product (test description)', 'SUCCESS');
+    expect(spy2.calls.count()).toBe(1, 'buyGlass was called once');
   });
 });

@@ -28,6 +28,8 @@ describe('NavComponent', () => {
         logout: function(){}
     };
 
+    viewContainerRefStub = {};
+
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
       declarations: [ NavComponent ],
@@ -44,6 +46,7 @@ describe('NavComponent', () => {
     fixture.detectChanges();
     authenticationService = TestBed.get(AuthenticationService);
     toastsManager = TestBed.get(ToastsManager);
+    viewContainerRef = TestBed.get(ViewContainerRef);
   });
 
   it('should be created', () => {

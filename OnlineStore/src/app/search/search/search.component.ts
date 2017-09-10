@@ -42,7 +42,7 @@ export class SearchComponent implements OnInit {
     this.models = [];
     this.bodyTypes = [];
 
-    if (this.makeId !== -1) {
+    if (this.makeId !== 0) {
       this.getModels();
     }
   }
@@ -52,7 +52,7 @@ export class SearchComponent implements OnInit {
     this.bodyTypeId = null;
     this.bodyTypes = [];
 
-    if (this.makeId != -1 && this.modelId != -1) {
+    if (+this.makeId !== 0 && +this.modelId !== 0) {
       this.getBodyTypes();
     }
   }
@@ -77,20 +77,26 @@ export class SearchComponent implements OnInit {
   }
 
   getGlasses() {
-    if (this.makeId == null || this.makeId == -1) {
+    // console.log('makeId: ' + this.makeId);
+    // console.log('modelId: ' + this.modelId);
+    // console.log('bodyTypeId: ' + this.bodyTypeId);
+    // console.log('this.makeId === 0 : ' + (+this.makeId === 0));
+    // console.log('this.modelId == null : ' + (this.modelId == null));
+    // console.log('this.bodyTypeId == 0 : ' + (this.bodyTypeId == 0));
+    if (this.makeId == null || +this.makeId === 0) {
       this.toastr.info('Please select make', 'INFO:');
     }else if (this.models.length > 0 &&
-      (this.modelId == null || this.modelId == -1)) {
+      (this.modelId == null || +this.modelId === 0)) {
         this.toastr.info('Please select model', 'INFO');
     }else if (this.bodyTypes.length > 0 &&
-      (this.bodyTypeId == null || this.bodyTypeId == -1)) {
+      (this.bodyTypeId == null || +this.bodyTypeId === 0)) {
         this.toastr.info('Please select bodyType', 'INFO');
     } else {
-      if (this.modelId == -1) {
+      if (+this.modelId === 0) {
         this.modelId = null;
       }
 
-      if (this.bodyTypeId == -1) {
+      if (+this.bodyTypeId === 0) {
         this.bodyTypeId = null;
       }
 
