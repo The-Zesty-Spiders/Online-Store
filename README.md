@@ -31,3 +31,6 @@ We implement a simple **Car Glasses Store**.
 
 ### Deliverables
 [Sowcase System](http://best.telerikacademy.com/projects/718/Online-Store)
+
+### Demo
+[Live Demo](https://s5.aconvert.com/convert/p3r68-cdx67/g16yw-4j6c2.mp4)
