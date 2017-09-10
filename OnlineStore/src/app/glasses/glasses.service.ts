@@ -17,9 +17,10 @@ export class GlassesService {
   public getGlassesByVehicleInfo(makeId: number, modelId: number, bodyTypeId: number): Observable<any> {
       const header = { 'Content-Type': 'application/json' };
       const requestModel = new GlassRequest(makeId, modelId, bodyTypeId);
-
-      return this.apiServices.post('api/Products/GetByVehicleInfo', requestModel, header)
-        .map(res => res.json());
+      const response = this.apiServices.post('api/Products/GetByVehicleInfo', requestModel, header)
+      .map(res => res.json());
+      console.log(response);
+      return response;
   }
 
   public buyGlass(glassId: number) {
