@@ -17,12 +17,13 @@ export class NavComponent implements OnInit {
               public toastr: ToastsManager,
               vcr: ViewContainerRef) {
     this.toastr.setRootViewContainerRef(vcr);
-   }
+  }
+
   logout() {
-    // console.log('clicked');s
     this.authenticationService.logout();
     this.toastr.success('Logout successfull!', 'SUCCESS!');
   }
+
   ngOnInit() {
     this.isLoggedIn = this.authenticationService.isLoggedIn;
     this.isAdminLoggedIn = this.authenticationService.isAdminLoggedIn;

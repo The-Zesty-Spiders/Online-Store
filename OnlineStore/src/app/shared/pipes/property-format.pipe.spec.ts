@@ -10,7 +10,7 @@ describe('PropertyFormatPipe', () => {
     const pipe = new PropertyFormatPipe();
     expect(pipe.transform('') === '-').toBe(true);
   });
-  it('should kepp value', () => {
+  it('should keep value', () => {
     const pipe = new PropertyFormatPipe();
     expect(pipe.transform('test') === 'test').toBe(true);
   });
