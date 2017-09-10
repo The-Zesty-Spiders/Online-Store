@@ -7,7 +7,6 @@ import { User } from '../models/user.model';
 import { UsersService } from './../users.service';
 
 @Component({
-//   moduleId: module.id,
   selector: 'app-user-register',
   templateUrl: './user-register.component.html',
   styleUrls: ['./user-register.component.css']

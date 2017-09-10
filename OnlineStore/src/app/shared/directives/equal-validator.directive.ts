@@ -23,8 +23,6 @@ export class EqualValidatorDirective implements Validator {
 
   validate(password: AbstractControl): { [key: string]: any } {
     const passValue = password.value;
-
-
     const confirmPassValue = password.root.get(this.validateEqual);
 
     if (confirmPassValue && passValue !== confirmPassValue.value && !this.isReverse) {
