@@ -1,7 +1,3 @@
-small {
-    color: red;
-}
-
 .login-container {
     margin: 40px auto;
     width: 50%;
@@ -15,27 +11,7 @@ small {
     font-size: 1em;
 }
 
-
 input {
     margin: 0 auto;
     width: 60%;
-}
-
-.btn-gray-bgr {
-    background-color: #333333;
-    color: #fff;
-    font-size: 1.2em;
-    /* text-transform: uppercase; */
-  }
-  
-.btn:focus, .btn:active:focus, .btn.active:focus {
-outline: 0 none;
-box-shadow: none;
-}
-
-
-a, a:hover, a:link, a:visited, a:active {
-text-decoration: underline;
-color: #fff;
-padding: 25px;
 }

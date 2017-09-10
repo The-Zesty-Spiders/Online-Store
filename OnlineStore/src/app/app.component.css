@@ -1,19 +1,41 @@
-.alertMsg {
-    -webkit-animation: fadeinout 10s;
-    animation: fadeinout 10s;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 30px;
-  }
-
-  @-webkit-keyframes fadeinout {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
-  }
-
-  @keyframes fadeinout {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
-  }
+::ng-deep  a {
+  text-decoration: underline;
+  color: #fff;
+  padding: 25px;
+}
+::ng-deep  a:hover {
+  text-decoration: underline;
+  color: #fff;
+  padding: 25px;
+}
+::ng-deep  a:link {
+  text-decoration: underline;
+  color: #fff;
+  padding: 25px;
+}
+::ng-deep  a:visited {
+  text-decoration: underline;
+  color: #fff;
+  padding: 25px;
+}
+::ng-deep a:active {
+  text-decoration: underline;
+  color: #fff;
+  padding: 25px;
+}
+::ng-deep small {
+  color: red;
+}
+::ng-deep  .btn:active:focus {
+  outline: 0 none;
+  box-shadow: none;
+}
+::ng-deep .btn.active:focus {
+  outline: 0 none;
+  box-shadow: none;
+}
+::ng-deep .btn-gray-bgr {
+  background-color: #333333;
+  color: #fff;
+  font-size: 1.2em;
+}
