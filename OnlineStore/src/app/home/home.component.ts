@@ -9,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent {
 
   public imageSources: string[] = [
-    'assets/images/test.jpg',
-    'assets/images/test.jpg',
-    'assets/images/test.jpg'
+    'assets/images/carousel1.jpg',
+    'assets/images/carousel2.jpg',
+    'assets/images/carousel3.jpg',
  ];
  public config: ICarouselConfig = {
    verifyBeforeLoad: true,

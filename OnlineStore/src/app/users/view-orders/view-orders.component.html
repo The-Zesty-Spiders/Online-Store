@@ -1,5 +1,5 @@
 <div class="magane-orders-container">
-  <h1 class="viewOrders">Orders:</h1>
+  <h1 id="viewOrders">Orders:</h1>
   <div class="sortBy">
     <label> Sort By: </label>
     <select class="form-control" #sortFilterValue (change)="sortOrdersBy(sortFilterValue.value)">
@@ -18,7 +18,7 @@
         <strong>LocalCode: </strong><span>{{order?.LocalCode | propertyFormat}}</span><br>
         <strong>IndustryCode: </strong><span>{{order?.IndustryCode | propertyFormat}}</span><br>
         <strong>Created: </strong><span>{{order?.CreatedOn | dateFormat}}</span><br>
-        <strong>Finished: </strong><span *ngIf = "!isAdminLoggedIn">{{order?.Finished}}</span><br>
+        <strong>Finished: </strong><span *ngIf = "isLoggedIn && !isAdminLoggedIn">{{order?.Finished}}</span><br>
         <div *ngIf = "isAdminLoggedIn">
           <select class="form-control" [(ngModel)]="order.Finished" #newStatus>
               <option *ngFor="let status of statuses" [value]="status">{{status}}</option>

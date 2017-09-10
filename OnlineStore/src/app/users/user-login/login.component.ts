@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import {Component, OnInit, ViewContainerRef, ViewEncapsulation} from '@angular/core';
 
 import { AuthenticationService } from './../..//shared/services/authentication.service';
 import { Response } from '@angular/http';
@@ -9,6 +9,7 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
+  // encapsulation: ViewEncapsulation.Emulated
 })
 export class LoginComponent implements OnInit {
   model: any = {};

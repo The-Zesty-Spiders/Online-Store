@@ -14,7 +14,7 @@
               <a id="profile" appCustomdropdown class="dropdown-item" [routerLink]="['users/details']" class="sub-elems">Profile</a>
               <a appCustomdropdown class="dropdown-item" [routerLink]="['users/viewOrders']"
                 *ngIf="this.authenticationService.isLoggedIn" class="sub-elems">View Orders</a>
-              <a appCustomdropdown class="dropdown-item" href="javascript:void(0)" (click)="logout()"
+              <a id="nav-logout" appCustomdropdown class="dropdown-item" href="javascript:void(0)" (click)="logout()"
                 *ngIf="this.authenticationService.isLoggedIn" class="sub-elems">Log out</a>
             </div>
         </li>

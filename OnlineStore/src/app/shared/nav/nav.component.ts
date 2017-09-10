@@ -13,7 +13,7 @@ export class NavComponent implements OnInit {
   public isLoggedIn: boolean;
   public isAdminLoggedIn: boolean;
 
-  constructor(private authenticationService: AuthenticationService, public toastr: ToastsManager, vcr: ViewContainerRef) {
+  constructor(public authenticationService: AuthenticationService, public toastr: ToastsManager, public vcr: ViewContainerRef) {
     this.toastr.setRootViewContainerRef(vcr);
    }
   logout() {

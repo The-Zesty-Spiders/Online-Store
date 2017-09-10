@@ -14,7 +14,7 @@ const routes: Routes = [
   },
   {
     path: 'details',
-    component: UserDetailsComponent
+    component: UserDetailsComponent,
     // canActivate: [AuthGuard]
   },
   {
@@ -24,7 +24,7 @@ const routes: Routes = [
   {
     path: 'viewOrders',
     component: ViewOrdersComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
 
 ];
