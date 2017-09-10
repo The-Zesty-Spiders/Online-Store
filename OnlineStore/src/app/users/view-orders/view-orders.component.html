@@ -10,7 +10,9 @@
     <div class="users-order" *ngFor="let order of orders">
         <h3 >Order #{{order?.Id}}</h3>
         <div></div>
-        <strong>Client's bulstat: </strong><span>{{order?.Bulstat}}</span><br>
+        <div *ngIf = "isAdminLoggedIn">
+          <strong>Client's bulstat: </strong><span>{{order?.Bulstat}}</span><br>
+        </div>
         <strong>Description: </strong><span>{{order?.Description}}</span><br>
         <strong>EuroCode: </strong><span>{{order?.EuroCode | propertyFormat}}</span><br>
         <strong>OesCode: </strong><span>{{order?.OesCode  | propertyFormat}}</span><br>
