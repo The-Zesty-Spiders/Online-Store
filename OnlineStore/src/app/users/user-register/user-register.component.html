@@ -3,7 +3,7 @@
     <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
             <label for="email">Email:</label>
-            <input type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" maxlength="50" required />
+            <input id="reg-email" type="text" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" maxlength="50" required />
             <!-- <div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div> -->
             <small [hidden]="email.valid || (email.pristine && !f.submitted)">
                 Email is required and format should be <i>example@example.com</i>.
@@ -11,7 +11,7 @@
         </div>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
             <label for="bulstat">Bulstat:</label>
-            <input type="text" class="form-control" name="bulstat" [(ngModel)]="model.bulstat" #bulstat="ngModel" pattern="^([0-9]){9}$" maxlength="9" required />
+            <input type="text" id="reg-bulstat" class="form-control" name="bulstat" [(ngModel)]="model.bulstat" #bulstat="ngModel" pattern="^([0-9]){9}$" maxlength="9" required />
             <!-- <div *ngIf="f.submitted && !bulstat.valid" class="help-block">Bulstat is required</div> -->
             <small [hidden]="bulstat.valid || (bulstat.pristine && !f.submitted)">
                 Bulstat is required and format should be <i>123456789</i>.
@@ -19,7 +19,7 @@
         </div>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
             <label for="companyName">Company name:</label>
-            <input type="text" class="form-control" name="companyName" [(ngModel)]="model.companyName" #companyName="ngModel" maxlength="30" required />
+            <input  id="reg-name" type="text" class="form-control" name="companyName" [(ngModel)]="model.companyName" #companyName="ngModel" maxlength="30" required />
             <!-- <div *ngIf="f.submitted && !companyName.valid" class="help-block">Company name is required</div> -->
             <small [hidden]="companyName.valid || (companyName.pristine && !f.submitted)">
                 Company name is required!
@@ -27,7 +27,7 @@
         </div>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
             <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" validateEqual="confirmPassword" reverse="true" minlength="6"  maxlength="20" required />
+            <input id="reg-pass" type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" validateEqual="confirmPassword" reverse="true" minlength="6"  maxlength="20" required />
             <!-- <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div> -->
             <small [hidden]="password.valid || (password.pristine && !f.submitted)">
                 Password should be at least <i>6 symbols</i>!
@@ -35,14 +35,14 @@
         </div>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !confirmPassword.valid }">
                 <label for="confirmPassword">Confirm password</label>
-                <input type="password" class="form-control" name="confirmPassword" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel"  validateEqual="password"  reverse="false" minlength="6" maxlength="20" required />
+                <input id="reg-confPass" type="password" class="form-control" name="confirmPassword" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel"  validateEqual="password"  reverse="false" minlength="6" maxlength="20" required />
                 <!-- <div *ngIf="f.submitted && !confirmPassword.valid" class="help-block">Password mismatch</div> -->
                 <small [hidden]="confirmPassword.valid || (confirmPassword.pristine && !f.submitted)" >
                     Password mismatch!
                 </small>
         </div>
         <div class="form-group">
-            <button [disabled]="loading" class="btn-gray-bgr btn btn-md">Register</button>
+            <button id="reg-submit" [disabled]="loading" class="btn-gray-bgr btn btn-md">Register</button>
             <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
             <a [routerLink]="['/home']" class="btn btn-link">Cancel</a>
         </div>
