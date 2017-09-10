@@ -58,8 +58,9 @@ describe('NavComponent', () => {
     component.logout();
     fixture.detectChanges();
 
-    expect(spy1.calls.count()).toBe(1, 'toastr.success was called once');
-    expect(spy2.calls.count()).toBe(1, 'authServices.logout was called once');
+    expect(spy1.calls.count()).toBe(1, 'authServices.logout was called once');
+    expect(spy2.calls.count()).toBe(1, 'toastr.success was called once');
+    expect(spy2).toHaveBeenCalledWith('Logout successfull!', 'SUCCESS!');
     expect(spy3.calls.count()).toBe(0);
   });
 
@@ -70,8 +71,8 @@ describe('NavComponent', () => {
 
     fixture.detectChanges();
 
-    expect(spy1.calls.count()).toBe(0, 'toastr.success was called once');
-    expect(spy2.calls.count()).toBe(0, 'authServices.logout was called once');
+    expect(spy1.calls.count()).toBe(0, 'authServices.logout was called once');
+    expect(spy2.calls.count()).toBe(0, 'toastr.success was called once');
     expect(spy3.calls.count()).toBe(0);
   });
 
