@@ -3,7 +3,7 @@ import { Attribute, Directive, forwardRef } from '@angular/core';
 
 @Directive({
   // selector: '[appEqualValidator]',
-  selector: '[validateEqual][formControlName],[validateEqual][formControl],[validateEqual][ngModel]',
+  selector: '[app-validateEqual][formControlName],[validateEqual][formControl],[validateEqual][ngModel]',
   providers: [
     { provide: NG_VALIDATORS, useExisting: forwardRef(() => EqualValidatorDirective), multi: true }
 ]

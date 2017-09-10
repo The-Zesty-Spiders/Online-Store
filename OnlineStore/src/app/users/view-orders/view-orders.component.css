@@ -28,16 +28,3 @@ select {
     padding: 5px;
 }
 
-.btn-gray-bgr {
-    background-color: #333333;
-    color: #fff;
-    font-size: 1.2em;
-    margin: 10px;
-    display: inline;
-    /* text-transform: uppercase; */
-  }
-
-.btn:focus, .btn:active:focus, .btn.active:focus {
-outline: 0 none;
-box-shadow: none;
-}
